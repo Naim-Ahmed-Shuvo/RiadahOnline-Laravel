@@ -1,0 +1,711 @@
+/* indexpage */
+
+/* iphone 5s/se */
+@media (max-width: 320px) {
+    /* .----------------------index page start ------------------------ */
+   header{
+       display: none;
+   }
+   .header-main .col-7 .header-links{
+       display: none;
+   }
+   .header-main .mobile-menu-bar {
+     display: flex;
+     justify-content: flex-end;
+     align-items: center;
+   }
+   .header-main .mobile-menu-bar i{
+       cursor: pointer;
+   }
+   .header-logo img{
+       width: 100px;
+   }
+
+   /* carousel */
+   .carousel-item img{
+    height: 189px !important;
+   }
+   /* carousel./ */
+
+   /* form */
+   .form .div{
+       padding: 10px 10px !important;
+   }
+    .form .div h5{
+        font-size: 16px !important;
+        width: 100% !important;
+        text-align: center;
+    }
+    .form .div div{
+        height: 40px !important;
+        margin-top: 20px !important;
+        width: 100% !important;
+    }
+    .form .div div input::placeholder{
+        font-size: small !important;
+    }
+    .form .div div button{
+        height: 30px !important;
+        
+        font-size: 13px;
+    }
+
+    /* testimonial */
+    .testimonial .cardd {
+        display: flex;
+        justify-content: center;
+    }
+    .testimonial .cardd .card-text{
+        left: 11% !important;
+    }
+
+    /* about */
+    .about img{
+        width: 100% !important;
+    }
+    .about .about-text{
+        width: 100% !important;
+        margin: 71px 0px !important;
+    }
+    .about .about-text h1{
+        font-size: 37px !important;
+        text-align: center !important;
+    }
+    .about .about-text p{
+        font-size: 13px !important;
+        text-align: center;
+    }
+    .about .about-text button{
+        padding: 9px 63px !important;
+        margin-left: 13%;
+    }
+    /* about./ */
+
+    /*partner */
+    .partner {
+        margin-top: 47px !important;
+    }
+    .partner .info{
+        top: 103%;
+       width: 91% !important;
+    }
+    .partner .div-image{
+        width: 100%;
+    }
+    .partner-main .image-overlay{
+        padding: 20px 10px !important;
+    }
+    .partner-main .image-overlay h4{
+        font-size: 20px !important;
+        margin: 10px 0px  !important;
+        text-align: center !important;
+    }
+    .partner-main .image-overlay p{
+        font-size: 13px !important;
+        text-align: center !important;
+        margin: 0px  !important;
+    }
+    .info-tem{
+        align-items: start !important;
+    }
+    .info-tem a{
+        height: 26px !important;
+        width: 26px !important;
+    }
+    .info-tem p {
+       
+        width: 221px  !important;
+    }
+    /* partner./ */
+
+    /* projects */
+    .projects{
+        margin-top: 706px !important;
+    }
+    .project-card p{
+       margin: 0 auto !important;
+    }
+    /* projects./ */
+
+    /* query */
+    .query .query-header{
+        padding-top: 45px !important;
+    }
+    .query .query-header h4{
+        font-size: 33px !important;
+        
+    }
+    .query .query-header p{
+        width: 273px !important;
+    }
+    .query-form {
+        padding: 20px 10px !important;
+        width: 92% !important;
+        bottom: -148% !important;
+        left: 3% !important;
+    }
+    .query-form .inputs{
+        flex-direction: column !important;
+        width: 100%;
+        padding: 6px 0px !important;
+    }
+    .query-form .inputs input{
+        margin: 10px 0px !important;
+    }
+    .query-row-2 {
+      background-color: #CCCCCC;
+      padding: 393px 0px !important;
+    }
+    /* query./ */
+
+    /* footer */
+    .footer-top .contain1 h1{
+        font-size: 16px;
+    }
+    .footer-top .contain-3{
+        margin-top: 20px !important;
+    }
+    .contain-3 .icons {
+        width: 100% !important;
+    }
+    .contain-3 .icons a{
+        height: 19px !important;
+    }
+    /* footer./ */
+
+
+    /* .----------------------index page end ------------------------ */
+
+    /* .------------------------about page start.-------------------------- */
+    .about-page-about{
+        margin-bottom: 100px !important;
+    }
+    .about-page-about .about-text{
+        text-align: center !important;
+    }
+    .about-page-about .about-page-btn{
+       margin-left: 0 !important;
+    }
+
+    /* about mission */
+    .about-mission .about-mission-content{
+       flex-direction: column !important;
+       align-items: center !important;
+    }
+    .about-mission-content .text-content{
+        text-align: center !important;
+        margin-left: 0 !important;
+        margin-top: 20px !important;
+    }
+    
+    /* .main-partner */
+    .main-partner{
+        padding-top: 30px !important;
+    }
+    .aboutpage-projects{
+        padding-top: 10px !important;
+        margin-top: 0px  !important;
+    }
+    /* .------------------------about page end.-------------------------- */
+
+
+}
+
+/* ..........----------------.................... */
+/* xs */
+@media (max-width: 575.98px) {
+    
+
+    /* --------------index page------------------------- */
+    header{
+        display: none;
+    }
+    .header-main .col-7 .header-links{
+        display: none;
+    }
+    .header-main .mobile-menu-bar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .header-main .mobile-menu-bar i{
+        cursor: pointer;
+    }
+    .header-logo img{
+        width: 100px;
+    }
+ 
+    /* carousel */
+    .carousel-item img{
+     height: 189px !important;
+    }
+    /* carousel./ */
+ 
+    /* form */
+    .form .div {
+        padding: 26px 10px !important;
+    }
+     .form .div h5{
+        font-size: 22px !important;
+         width: 100% !important;
+         text-align: center;
+     }
+     .form .div div{
+         height: 40px !important;
+         margin-top: 20px !important;
+         width: 100% !important;
+     }
+     .form .div div input::placeholder{
+         font-size: small !important;
+     }
+     .form .div div button{
+         height: 30px !important;
+         
+         font-size: 13px;
+     }
+ 
+     /* testimonial */
+     .testimonial .cardd {
+         display: flex;
+         justify-content: center;
+     }
+     .testimonial .cardd .card-text{
+        left: 29% !important;
+     }
+ 
+     /* about */
+     .about img{
+         width: 100% !important;
+     }
+     .about .about-text{
+         width: 100% !important;
+         margin: 71px 0px !important;
+     }
+     .about .about-text h1{
+         font-size: 37px !important;
+         text-align: center !important;
+     }
+     .about .about-text p{
+        font-size: 16px !important;
+         text-align: center;
+     }
+     .about .about-text button{
+         padding: 9px 63px !important;
+         margin-left: 28%;
+     }
+     /* about./ */
+ 
+     /*partner */
+     .partner {
+         margin-top: 47px !important;
+     }
+     .partner .info{
+        top: 103%;
+        width: 70% !important;
+        left: 10% !important;
+     }
+     .partner .div-image{
+         width: 100%;
+     }
+     .partner-main .image-overlay{
+         padding: 20px 10px !important;
+     }
+     .partner-main .image-overlay h4{
+         font-size: 20px !important;
+         margin: 0 auto  !important;
+         text-align: center !important;
+     }
+     .partner-main .image-overlay p{
+        font-size: 14px !important;
+         text-align: center !important;
+         margin: 5px auto  !important;
+     }
+     .info-tem{
+         align-items: start !important;
+     }
+     .info-tem a{
+         height: 26px !important;
+         width: 26px !important;
+     }
+     .info-tem p {
+        
+         width: 221px  !important;
+     }
+     /* partner./ */
+ 
+     /* projects */
+     .projects{
+         margin-top: 706px !important;
+     }
+     .project-card{
+         width: 70%;
+         margin: 0 auto;
+         padding-bottom: 10px !important;
+     }
+     .project-card img {
+        left: 8% !important;
+    }
+     .project-card p{
+        margin: 0 auto !important;
+     }
+     /* projects./ */
+ 
+     /* query */
+     .query .query-header{
+         padding-top: 45px !important;
+     }
+     .query .query-header h4{
+         font-size: 33px !important;
+         
+     }
+     .query .query-header p{
+         width: 273px !important;
+     }
+     .query-form {
+         padding: 20px 10px !important;
+         width: 92% !important;
+         bottom: -148% !important;
+         left: 3% !important;
+     }
+     .query-form .inputs{
+         flex-direction: column !important;
+         width: 100%;
+         padding: 6px 0px !important;
+     }
+     .query-form .inputs input{
+         margin: 10px 0px !important;
+     }
+     .query-row-2 {
+       background-color: #CCCCCC;
+       padding: 393px 0px !important;
+     }
+     /* query./ */
+ 
+     /* footer */
+     .footer-top .contain1 h1{
+         font-size: 16px;
+     }
+     .footer-top .contain-3{
+         margin-top: 20px !important;
+     }
+     .contain-3 .icons {
+         width: 100% !important;
+     }
+     .contain-3 .icons a{
+        height: 19px !important;
+        width: 20px !important;
+     }
+     /* footer./ */
+     /* ------------index page end----------- */
+
+
+     /* ---------about page-------------------- */
+        .aboutpage-projects{
+            margin-top: 100px !important;
+        }
+     /* ---------about page end-------------------- */
+}
+
+/* sm */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    header{
+        display: none;
+    }
+    .header-main .col-7 .header-links{
+        display: none;
+    }
+    .header-main .mobile-menu-bar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-top: 7px !important;
+    }
+    .header-main .mobile-menu-bar i{
+        font-size: 20px !important;
+    }
+    .header-main .mobile-menu-bar i{
+        cursor: pointer;
+    }
+    .header-logo img {
+        width: 130px !important;
+    }
+
+     /* carousel */
+     .carousel-item img{
+        height: 299px !important;
+       }
+       /* carousel./ */
+    
+       /* form */
+       .form .div {
+           padding: 26px 10px !important;
+       }
+        .form .div h5{
+           font-size: 22px !important;
+            width: 100% !important;
+            text-align: center;
+        }
+        .form .div div{
+            height: 40px !important;
+            margin-top: 20px !important;
+            width: 100% !important;
+        }
+        .form .div div input::placeholder{
+            font-size: small !important;
+        }
+        .form .div div button{
+            height: 30px !important;
+            
+            font-size: 13px;
+        }
+    
+        /* testimonial */
+        .testimonial .cardd {
+            display: flex;
+            justify-content: center;
+        }
+        .testimonial .cardd img {
+            width: 332px !important;
+        }
+        .testimonial .cardd .card-text{
+           left: 29% !important;
+        }
+    
+        /* about */
+        .about img{
+            width: 100% !important;
+        }
+        .about .about-text{
+            width: 100% !important;
+            margin: 71px 0px !important;
+        }
+        .about .about-text h1{
+            font-size: 37px !important;
+            text-align: center !important;
+        }
+        .about .about-text p{
+           font-size: 16px !important;
+            text-align: center;
+        }
+        .about .about-text button{
+            padding: 9px 63px !important;
+            margin-left: 28%;
+        }
+        /* about./ */
+    
+        /*partner */
+        .partner {
+            margin-top: 47px !important;
+        }
+        .partner .info{
+           top: 103%;
+           width: 70% !important;
+           left: 10% !important;
+        }
+        .partner .div-image{
+            width: 100%;
+        }
+        .partner-main .image-overlay{
+            padding: 20px 10px !important;
+        }
+        .partner-main .image-overlay h4{
+            font-size: 20px !important;
+            margin: 0 auto  !important;
+            text-align: center !important;
+        }
+        .partner-main .image-overlay p{
+           font-size: 14px !important;
+            text-align: center !important;
+            margin: 5px auto  !important;
+        }
+        .info-tem{
+            align-items: start !important;
+        }
+        .info-tem a{
+            height: 26px !important;
+            width: 26px !important;
+        }
+        .info-tem p {
+           
+            width: 221px  !important;
+        }
+        /* partner./ */
+    
+        /* projects */
+        .indexpage-projects{
+            margin-top: 706px !important;
+        }
+        .project-card{
+            width: 70%;
+            margin: 0 auto;
+            padding-bottom: 10px !important;
+        }
+        .project-card img {
+           left: 8% !important;
+       }
+        .project-card p{
+           margin: 0 auto !important;
+        }
+        /* projects./ */
+    
+        /* query */
+        .query .query-header{
+            padding-top: 45px !important;
+        }
+        .query .query-header h4{
+            font-size: 33px !important;
+            
+        }
+        .query .query-header p{
+            width: 273px !important;
+        }
+        .query-form {
+            padding: 20px 10px !important;
+            width: 92% !important;
+            bottom: -148% !important;
+            left: 3% !important;
+        }
+        .query-form .inputs{
+            flex-direction: column !important;
+            width: 100%;
+            padding: 6px 0px !important;
+        }
+        .query-form .inputs input{
+            margin: 10px 0px !important;
+        }
+        .query-row-2 {
+          background-color: #CCCCCC;
+          padding: 393px 0px !important;
+        }
+        /* query./ */
+    
+        /* footer */
+        .footer-top .contain1 h1{
+            font-size: 16px;
+        }
+        .footer-top .contain-3{
+            margin-top: 20px !important;
+        }
+        .contain-3 .icons {
+            width: 100% !important;
+        }
+        .contain-3 .icons a{
+           height: 19px !important;
+           width: 20px !important;
+        }
+        /* footer./ */
+}
+
+/* md */
+@media (min-width: 768px) and (max-width: 991.98px) {
+   /* header top */
+   header .links .item{
+    margin: 0px 6px !important;
+   }
+   /* header top./ */
+   .mobile-menu-bar{
+       display: none !important;
+   }
+
+   /* carousel */
+   .carousel-item img {
+       height: 401px  !important;
+    }
+   /* carousel./ */
+
+   /* form */
+    .form .div {
+        
+        padding: 20px 10px  !important;
+       
+    }
+    .form .div div{
+        margin: 0 auto !important;
+    }
+    .form .div h5{
+        text-align: center;
+        margin: 10px 0px;
+    }
+   /* form */
+
+   /* card */
+   .testimonial .cardd{
+       display: flex !important;
+       justify-content: center !important;
+   }
+   /* card./ */
+
+   /* about */
+   .about .about-img{
+       display: flex;
+       justify-content: center;
+   }
+   .about .about-text{
+      text-align: center;
+   }
+   /* about./ */
+
+   /* partner */
+   .partner .info {
+        top: 90% !important;
+        left: 12% !important;
+    }
+   /* partner./ */
+
+   /* projects */
+   .projects {
+
+        margin-top: 360px !important;
+    }
+   /* projects./ */
+
+   /* query form */
+   .query-form{
+       width: 64% !important;
+       left: 17% !important;
+       padding: 20px 20px !important;
+   }
+   /* query form./ */
+
+   /* -----------------about page ------------*/
+   .about .about-text{
+       margin-left: 0 !important;
+       margin-top: 20px !important;
+   }
+   /* -----------------about page./------------ */
+}
+
+/* lg */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    /* query */
+    .query-form {
+        padding: 20px 45px !important;
+        width: 70%  !important;
+        left: 13%  !important;
+       
+    }
+    /* query./ */
+
+    /* about */
+    .about .about-text{
+        margin-top: 30px !important;
+    }
+    /* about./ */
+
+    /* info */
+    .info{
+        width: 425px !important;
+    }
+    /* info./ */
+}
+
+/* xl */
+@media (min-width: 1200px) {
+    
+}
+
+/* indexpage./ */
+
+
+
+/*  */

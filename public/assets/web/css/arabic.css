@@ -1,0 +1,127 @@
+/* header */
+.header-logo{
+    display: flex;
+    justify-content: start;
+   }
+   /* header./ */
+
+   /* form */
+   .form .div div button{
+       margin-left: 10px;
+   }
+   .form .div h5 {
+       font-family: "Roboto",sans-serif;
+       font-size: 50px;
+       text-align: center;
+       margin-bottom: 17px;
+   }
+   .form .div div input{
+       padding-right: 18px;
+   }
+   /* form./ */
+
+   /* footer */
+   .footer-top,footer{
+       text-align: right;
+   }
+   .footer-top .contain-2 .icon-links:hover {
+       transform: translateX(-5%);
+   }
+
+   /* mobile menu */
+   .header-main .mobile-menu {
+       padding: 30px 0px;
+       display: none;
+   }
+   .header-main .mobile-menu .mobile-menu-header-links span{
+       display: block;
+       transition: all .5s ease-in-out;
+       width: 20%;
+     text-align: right;
+   }
+   .header-main .mobile-menu .mobile-menu-header-links span a{
+       color:#333333;
+       text-decoration: none;
+
+   }
+   .header-main .mobile-menu .mobile-menu-header-links span:hover{
+     transform: translateX(-5%) ;
+   }
+   .header-main .mobile-menu .mobile-menu-item p{
+       margin: 0;
+       margin-right: 5px;
+   }
+   .header-main .mobile-menu .mobile-menu-item{
+     display: flex;
+     align-items: center;
+   }
+   .header-main .mobile-menu .mobile-menu-item i{
+       color: #333333;
+   }
+   .mobile-menu-bar{
+       display: none;
+   }
+   /* mobile menu./ */
+
+   /* detailspage */
+   .sec-main-text-content .buttons{
+       display: flex;
+       justify-content: start;
+   }
+   .main2 .tabs{
+     /* display: flex;
+     justify-content: start; */
+     text-align: start;
+   }
+   .main2 .tabs span{
+       margin-right: 10px;
+   }
+
+   /* contact page */
+   .contact-top-header p{
+       text-align: center;
+   }
+   .contact-info h4,p,span{
+       text-align: start;
+   }
+   .contact-form .inputs .text-input p{
+       text-align: start;
+   }
+   .contact-form .inputs:nth-child(4) .text-input{
+       display: flex;
+       justify-content: start;
+   }
+   .map h5{
+       text-align: start;
+   }
+
+   /* about page */
+
+   .about .about-head p{
+       text-align: center;
+   }
+   .about .about-text{
+       text-align: start;
+       margin: 0;
+       margin-right: 80px;
+   }
+   .about-mission-content .text-content{
+       text-align: right;
+       margin: 0;
+       padding-right: 50px;
+   }
+   .about-img{
+     padding-right: 30px;
+   }
+   .main-partner .about-head p{
+       text-align: center;
+   }
+   .main-partner .col-content p{
+       margin-right: 20px;
+   }
+
+   /* partners page */
+
+   .partner-sec-2-col-content i{
+       margin: 0 20px;
+   }
