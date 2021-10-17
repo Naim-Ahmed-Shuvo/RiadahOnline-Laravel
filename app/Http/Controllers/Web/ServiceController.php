@@ -34,5 +34,24 @@ class ServiceController extends Controller
         return $services;
     }
 
+    public function serviceDetails(Request $request,$id='',$cat_id='')
+    {
+        // echo $cat_id?  $cat_id:'nai';
+        // exit();
+        $services = $cat_id? Service::where('cat_id',$cat_id)->get() :Service::latest()->get();
+        $categories = Category::latest()->get();
+        $service = $id?Service::find($id):'';
+        $category = $cat_id?Category::find($service->cat_id):'';
+        if(isset($request->search)){
+            $services =  Service::where('title','LIKE','%'.$request->search.'%')->get();
+            $categories = Category::latest()->get();
+            // return view('web.details',['services'=>$services,'categories'=>$categories]);
+        }
+
+
+
+        return view('web.details',['service'=>$service,'services'=>$services,'category'=>$category,'categories'=>$categories,'id'=>$id,'cat_id'=>$cat_id]);
+    }
+
 
 }

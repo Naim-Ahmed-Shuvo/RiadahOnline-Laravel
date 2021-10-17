@@ -1,6 +1,9 @@
 @extends('web.layout.app')
 
 @section('main')
+@php
+    $locale = app()->getLocale()
+@endphp
 <!-- form -->
 <section class="details-form">
     <div class="container">
@@ -8,9 +11,10 @@
             <div class="col">
                <div class="div">
 
+
                     <div>
-                        <input type="text" placeholder="Find serice...">
-                        <button>Search</button>
+                        <input type="text" placeholder="<?php echo $locale=='ar'?'البحث عن':'Find serice...'?>" style="padding-right: <?php echo $locale=='ar'? '30px':''?>">
+                        <button style="margin-left: <?php echo $locale=='ar'? '8px':''?>">{{$locale=="ar"?'بحث':'Search'}}</button>
                     </div>
                </div>
             </div>
@@ -26,14 +30,14 @@
     <div class="row">
         <div class="col-12 col-lg-5">
             <div class="sec-img">
-                <img src="img/image 4.png" alt="">
+                <img src="{{url($service->image??'')}}" alt="">
             </div>
         </div>
         <div class="col-12 col-lg-7">
             <div class="sec-main-text-content">
-                <h5>Developing the capabilities of workers in the real estate sector</h5>
+                <h5 style="text-align: <?php echo $locale=='ar'?'right':'' ?>">{{$locale=="ar"?$service->title_ar:$service->title}}</h5>
                 <p>Contribute to the rehabilitation and development of the capabilities of workers in the real estate sector, the orientation of future jobs in the real estate sector, the rehabilitation, training and development of human capital, and as a liaison to build bridges between members of the training incubator platform, rehabilitation and training centers, activities related to human capital and marketing on behalf of others, and a specialized entity in the field of building partnerships between public and private sector</p>
-                <p class="category"><b>Category</b>: Property Manegement</p>
+                <p class="category"><b>Category</b>: {{$locale == "ar"? $category->name_ar??'':$category->name??''}}</p>
                 <div class="buttons">
                     <button>Visit Website</button>
                     <button>Request to Services</button>
@@ -78,17 +82,19 @@
         <div class="row">
             <div class="col-12 col-lg-4">
                 <div class="service-menus">
-                    <p class="active">Property Management  <i class="fas fa-angle-right"></i></p>
-                    <p>Property Management</p>
-                    <p>Property Management</p>
-                    <p>Property Management   </p>
-                    <p>Property Management   </p>
-                    <p>Property Management  </p>
-                    <p>Property Management  </p>
-                    <p>Property Management  </p>
-                    <p>Property Management   </p>
-                    <p>Property Management   </p>
-                    <p>Property Management  </p>
+                    @forelse ($categories as $item)
+                    <a href="{{url('service-details')}}/{{$id}}/{{$item->id}}">
+
+                        <p class="<?php echo $item->id==$cat_id? 'active':'' ?>">
+                            {{$locale=="ar"?$item->name_ar:$item->name}}
+                            @php
+                             echo  $item->id==$cat_id?   '<i class="fas fa-angle-right"></i>':''
+                            @endphp
+                        </p>
+                    </a>
+                    @empty
+                      {{ "no data" }}
+                    @endforelse
                 </div>
 
                 <div class="div-img">
@@ -98,114 +104,23 @@
             </div>
             <div class="col-12 col-lg-8 my-md-4">
                 <div class="row">
-                    <div class="col-12 col-lg-4 mb-3 col-md-6">
-                        <div class="service-card ">
-                            <img src="img/Rectangle 36.png" alt="img">
-                            <h3>Investment and Financing</h3>
-                            <p>Collective Owership Financing. Mediation in collective property financing services for owners of small and medium enterprises. <a href="#">Read More</a></p>
-                        </div>
+                    @forelse ($services as $item)
+
+                    <div class="col-12 col-lg-4 mb-3 col-md-6 mb-4">
+                        <a href="{{url('service-details')}}/{{$item->id}}" style="text-decoration: none;">
+                            <div class="service-card ">
+                                <img src="{{url($item->image)}}" class="w-100" alt="img">
+                                <h3 style="text-align: <?php echo $locale=='ar'?'right':'' ?>">{{$locale=='ar'?$item->title_ar:$item->title}}</h3>
+                                <p style="color: #333333">{{$locale=='ar'?$item->description_ar:$item->description}}</p>
+                            </div>
+                        </a>
                     </div>
-                    <div class="col-12 col-lg-4 mb-3 col-md-6">
-                        <div class="service-card">
-                            <img src="img/Rectangle 36.png" alt="img">
-                            <h3>Investment and Financing</h3>
-                            <p>Collective Owership Financing. Mediation in collective property financing services for owners of small and medium enterprises. <a href="#">Read More</a></p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 mb-3 col-md-6">
-                        <div class="service-card">
-                            <img src="img/Rectangle 36.png" alt="img">
-                            <h3>Investment and Financing</h3>
-                            <p>Collective Owership Financing. Mediation in collective property financing services for owners of small and medium enterprises. <a href="#">Read More</a></p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-6">
-                        <div class="service-card">
-                            <img src="img/Rectangle 36.png" alt="img">
-                            <h3>Investment and Financing</h3>
-                            <p>Collective Owership Financing. Mediation in collective property financing services for owners of small and medium enterprises. <a href="#">Read More</a></p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-6">
-                        <div class="service-card">
-                            <img src="img/Rectangle 36.png" alt="img">
-                            <h3>Investment and Financing</h3>
-                            <p>Collective Owership Financing. Mediation in collective property financing services for owners of small and medium enterprises. <a href="#">Read More</a></p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-6">
-                        <div class="service-card">
-                            <img src="img/Rectangle 36.png" alt="img">
-                            <h3>Investment and Financing</h3>
-                            <p>Collective Owership Financing. Mediation in collective property financing services for owners of small and medium enterprises. <a href="#">Read More</a></p>
-                        </div>
-                    </div>
+                    @empty
+
+                    @endforelse
+
                 </div>
-                <div class="row">
-                    <div class="col-12 col-lg-4 col-md-6 mb-3">
-                        <div class="service-card ">
-                            <img src="img/Rectangle 36.png" alt="img">
-                            <h3>Investment and Financing</h3>
-                            <p>Collective Owership Financing. Mediation in collective property financing services for owners of small and medium enterprises. <a href="#">Read More</a></p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-6 mb-3">
-                        <div class="service-card">
-                            <img src="img/Rectangle 36.png" alt="img">
-                            <h3>Investment and Financing</h3>
-                            <p>Collective Owership Financing. Mediation in collective property financing services for owners of small and medium enterprises. <a href="#">Read More</a></p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-6 mb-3">
-                        <div class="service-card">
-                            <img src="img/Rectangle 36.png" alt="img">
-                            <h3>Investment and Financing</h3>
-                            <p>Collective Owership Financing. Mediation in collective property financing services for owners of small and medium enterprises. <a href="#">Read More</a></p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-6 mt-3">
-                        <div class="service-card">
-                            <img src="img/Rectangle 36.png" alt="img">
-                            <h3>Investment and Financing</h3>
-                            <p>Collective Owership Financing. Mediation in collective property financing services for owners of small and medium enterprises. <a href="#">Read More</a></p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-6 mt-3">
-                        <div class="service-card">
-                            <img src="img/Rectangle 36.png" alt="img">
-                            <h3>Investment and Financing</h3>
-                            <p>Collective Owership Financing. Mediation in collective property financing services for owners of small and medium enterprises. <a href="#">Read More</a></p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-6  mt-3">
-                        <div class="service-card">
-                            <img src="img/Rectangle 36.png" alt="img">
-                            <h3>Investment and Financing</h3>
-                            <p>Collective Owership Financing. Mediation in collective property financing services for owners of small and medium enterprises. <a href="#">Read More</a></p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-6 mt-3">
-                        <div class="service-card">
-                            <img src="img/Rectangle 36.png" alt="img">
-                            <h3>Investment and Financing</h3>
-                            <p>Collective Owership Financing. Mediation in collective property financing services for owners of small and medium enterprises. <a href="#">Read More</a></p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-6  mt-3">
-                        <div class="service-card">
-                            <img src="img/Rectangle 36.png" alt="img">
-                            <h3>Investment and Financing</h3>
-                            <p>Collective Owership Financing. Mediation in collective property financing services for owners of small and medium enterprises. <a href="#">Read More</a></p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4 mt-4">
-                        <div class="service-card">
-                            <img src="img/Rectangle 36.png" alt="img">
-                            <h3>Investment and Financing</h3>
-                            <p>Collective Owership Financing. Mediation in collective property financing services for owners of small and medium enterprises. <a href="#">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>

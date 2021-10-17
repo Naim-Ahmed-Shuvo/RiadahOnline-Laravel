@@ -72,7 +72,7 @@ $locale = app()->getLocale();
 
             <div class="col-sm-12 col-12 col-md-6 col-lg-3  my-5">
                 <div class="cardd">
-                    <a href="">
+                    <a href="{{url("/service-details/")}}/{{$item->id}}">
                         <img src="{{$item->image}}" class="img-fluid" alt="">
                         <div class="card-text shadow ">
                             <div class="card-text-top">

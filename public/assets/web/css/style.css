@@ -39,7 +39,7 @@ body ul li{
 
 /* header */
 header .header-top{
-    background-color: var(--primary-blue);
+    background-color: #6B438A;
     color: var(--text-white);
     padding: 30px 0px;
 }
@@ -80,7 +80,7 @@ header .links{
 }
 header .links .item{
     margin: 0px 20px;
-   
+
 }
 header .links .item a{
     display: flex;

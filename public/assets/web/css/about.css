@@ -37,7 +37,7 @@ body ul li{
     list-style: none;
 }
 
-/* header */
+/* header
 header .header-top{
     background-color: var(--primary-blue);
     color: var(--text-white);
@@ -125,7 +125,7 @@ header .links .item a p i{
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
-}
+} */
 /* header./ */
 
 /* about */

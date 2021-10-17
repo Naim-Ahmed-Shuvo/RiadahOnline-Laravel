@@ -25,7 +25,7 @@ Route::view('contact', 'web.contact')->name('contact');
 
 // service
 Route::match(['get', 'post'], 'servicepage/{cat_id?}',[ServiceController::class,'index']);
-// Route::get('servicebycategory/{id?}', [ServiceController::class,'getServiceByCategory']);
+Route::match(['get','post'],'service-details/{id?}/{cat_id?}', [ServiceController::class,'serviceDetails']);
 
 
 // contact from
