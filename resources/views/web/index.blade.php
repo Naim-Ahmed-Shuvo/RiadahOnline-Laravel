@@ -179,7 +179,9 @@ $locale = app()->getLocale();
         <div class="row">
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4 my-sm-3 my-md-1 my-lg-0">
                 <div class="project-card">
-                    <img src="{{ asset('/public/assets/web') }}/img/marketing logo-01 1.png" alt="img">
+                    <img src="{{ asset('/public/assets/web') }}/img/investment-incubator.png" alt="img" style="top: -30%;
+                    left: -19%;
+                    width: 350px;">
                     <h3>@lang('homepage.Investment-Incubator')</h3>
                     <p>@lang('homepage.Investment-Incubator-text')</p>
                 </div>
@@ -193,14 +195,16 @@ $locale = app()->getLocale();
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4 my-sm-3 my-md-1 my-lg-0">
                 <div class="project-card">
-                    <img src="{{ asset('/public/assets/web') }}/img/marketing logo-04 1.png" alt="img">
+                    <img src="{{ asset('/public/assets/web') }}/img/media-incubator.png" alt="img" style="top: -30%;
+                    left: -19%;
+                    width: 350px;">
                     <h3>@lang('homepage.Media-Incubator')</h3>
                     <p>@lang('homepage.Media-Incubator-text')</p>
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4 my-sm-3 my-md-1 my-lg-0">
                 <div class="project-card">
-                    <img src="{{ asset('/public/assets/web') }}/img/job-incubator.png" alt="img">
+                    <img src="{{ asset('/public/assets/web') }}/img/design-incubator.png" alt="img">
                     <h3>@lang('homepage.Design-Incubator')</h3>
                     <p>@lang('homepage.Design-Incubator-text')</p>
                 </div>
@@ -217,21 +221,25 @@ $locale = app()->getLocale();
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4 my-sm-3 my-md-1 my-lg-0">
                 <div class="project-card">
-                    <img src="{{ asset('/public/assets/web') }}/img/the-mobile-seller.png" alt="img">
+                    <img src="{{ asset('/public/assets/web') }}/img/data-incubator.png" alt="img" style="top: 11%;
+                    left: 14%;
+                    ">
                     <h3>@lang('homepage.Data-Incubator')</h3>
                     <p>@lang('homepage.Data-Incubator-text')</p>
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4 my-sm-3 my-md-1 my-lg-0">
                 <div class="project-card">
-                    <img src="{{ asset('/public/assets/web') }}/img/design-incubator.png" alt="img">
+                    <img src="{{ asset('/public/assets/web') }}/img/training-incubator.png" alt="img" style="top: -30%;
+                    left: -19%;
+                    width: 350px;">
                     <h3>@lang('homepage.Training-Incubator')</h3>
                     <p>@lang('homepage.Training-Incubator-text')</p>
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4">
                 <div class="project-card" style="margin-top: -23px;">
-                    <img src="{{ asset('/public/assets/web') }}/img/alnaquel-incubator.png" alt="img">
+                    <img src="{{ asset('/public/assets/web') }}/img/tec-incubator.png" alt="img">
                     <h3>@lang('homepage.Technical-Incubator')</h3>
                     <p>@lang('homepage.Technical-Incubator-text')</p>
                 </div>

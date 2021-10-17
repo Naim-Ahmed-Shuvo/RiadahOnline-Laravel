@@ -51,7 +51,7 @@ return [
     'partner-text-5'=>'	حاضنة التوظيف للبحث والتوظيف واجراء المقابلات',
     'partner-text-6'=>'	حاضنة التسويق للاستشارات التسويقية وادارة الحملات الدعائية ووضع الخطط التسويقية   ',
     'partner-read-more'=>'إقرأ المزيد',
-    
+
     // projects
     'Strategic-Partners-and-Investment-Projects'=>'شركاء استراتيجيون ومشاريع استثمارية',
     'Investment-Incubator'=>'حاضنة الاستثمار',
@@ -79,6 +79,8 @@ return [
     'Mobile'=>'رقم الجوال',
     'Message'=>'نص الرسالة',
     'Send-Message'=>'ارسال',
+    //
+    'Marketing Incubators'=>'حاضنات التسويق',
 
     // footer
     'Important-Links'=>'روابط هامة',

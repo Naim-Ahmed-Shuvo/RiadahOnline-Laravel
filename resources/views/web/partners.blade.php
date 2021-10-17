@@ -16,7 +16,7 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <div class="partner-card ">
                     <div class="partner-card-img" style="top: -9%;left:6%">
-                        <img src="{{asset('public/assets/web')}}/img/riadah-incubator.png" alt="img">
+                        <img src="{{asset('public/assets/web')}}/img/riadah-incubator.png" class="w-100" alt="img">
                     </div>
                     <div class="partner-card-text">
                         <h4> @lang('partnerspage.Riadah Incubators') </h4>
@@ -27,7 +27,7 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <div class="partner-card ">
                     <div class="partner-card-img">
-
+                        <img src="{{asset('public/assets/web')}}/img/economic-incubator.png" class="w-100" alt="img">
                     </div>
                     <div class="partner-card-text">
                         <h4> @lang('partnerspage.Economic Incubator') </h4>

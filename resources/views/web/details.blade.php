@@ -36,7 +36,7 @@
         <div class="col-12 col-lg-7">
             <div class="sec-main-text-content">
                 <h5 style="text-align: <?php echo $locale=='ar'?'right':'' ?>">{{$locale=="ar"?$service->title_ar:$service->title}}</h5>
-                <p>Contribute to the rehabilitation and development of the capabilities of workers in the real estate sector, the orientation of future jobs in the real estate sector, the rehabilitation, training and development of human capital, and as a liaison to build bridges between members of the training incubator platform, rehabilitation and training centers, activities related to human capital and marketing on behalf of others, and a specialized entity in the field of building partnerships between public and private sector</p>
+                <p>{{$locale=="ar"?$service->description_ar:$service->description}}</p>
                 <p class="category"><b>Category</b>: {{$locale == "ar"? $category->name_ar??'':$category->name??''}}</p>
                 <div class="buttons">
                     <button>Visit Website</button>
