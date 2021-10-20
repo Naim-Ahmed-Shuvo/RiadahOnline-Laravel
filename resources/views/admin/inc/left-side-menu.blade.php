@@ -42,10 +42,25 @@
                 </li>
 
                 <li>
-                    <a href="apps-members.html">
+                    <a  href="{{url('profile-view')}}">
                         <i class="fe-users"></i>
-                        <span> Members </span>
+                        <span> Users </span>
                     </a>
+                </li>
+                <li>
+                    <a href="#settings" data-bs-toggle="collapse">
+                        <i class="fas fa-cog"></i>
+                        <span> Settings </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="settings">
+                        <ul class="nav-second-level">
+                            <li >
+                                <a href="{{url('slider')}}">Slider</a>
+                            </li>
+
+                        </ul>
+                    </div>
                 </li>
 
             </ul>

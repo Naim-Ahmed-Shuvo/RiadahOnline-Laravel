@@ -201,7 +201,9 @@
         <div class="row">
             <div class="col">
                 <div class="project-btn text-center">
-                    <button class="shadow">@lang('homepage.View-all')</button>
+                    <a href="{{url('/servicepage')}}">
+                        <button class="shadow">@lang('homepage.View-all')</button>
+                    </a>
                 </div>
             </div>
         </div>

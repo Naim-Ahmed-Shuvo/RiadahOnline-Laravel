@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Web\ContactController;
+
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\ServiceController;
 use Illuminate\Support\Facades\Route;
@@ -29,9 +29,9 @@ Route::match(['get','post'],'service-details/{id?}/{cat_id?}', [ServiceControlle
 
 
 // contact from
-Route::post('/submit/contact/form', [ContactController::class,'submit']);
+Route::post('submit-form', [HomeController::class,'submit'])->name('submit.form');
 
 
 
 require __DIR__.'/auth.php';
-require __DIR__.'/admin.php';
+// require __DIR__.'/admin.php';

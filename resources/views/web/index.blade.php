@@ -269,7 +269,7 @@ $locale = app()->getLocale();
                     <p>@lang('homepage.Need-any-Queries?-p') </p>
                 </div>
                 <div class="query-form">
-                    <form action="{{url('/submit/contact/form')}}" method="post">
+                    <form action="{{route('submit.form')}}" method="post">
                         @csrf
                         <div class="inputs">
                             <input type="text" placeholder="@lang('homepage.Name')" name="name">

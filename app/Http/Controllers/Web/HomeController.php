@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Contact;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
@@ -18,5 +19,19 @@ class HomeController extends Controller
         }
         $services =  Service::latest()->get();
         return view('web.index',compact('services'));
+    }
+
+    public function submit(Request $request)
+    {
+        Contact::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'phone_number'=>$request->phone_number,
+            'company_name'=>$request->company_name,
+            'city'=>$request->city,
+            'message'=>$request->message,
+        ]);
+
+        return back();
     }
 }
