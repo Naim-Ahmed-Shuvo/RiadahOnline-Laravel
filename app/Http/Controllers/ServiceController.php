@@ -50,7 +50,7 @@ class ServiceController extends Controller
                  'cat_id'=>$request->cat_id,
                  'description'=>$request->description,
                  'description_ar'=>$request->description_ar,
-                 'image'=> 'public/images/'.$img_name
+                 'image'=> 'images/'.$img_name
              ]);
 
 
@@ -110,7 +110,7 @@ class ServiceController extends Controller
                 'cat_id'=>$request->cat_id,
                 'description'=>$request->description,
                 'description_ar'=>$request->description_ar,
-                'image' => 'public/images/'.$img_name,
+                'image' => 'images/'.$img_name,
                 'created_at' => Carbon::now(),
             ]);
 

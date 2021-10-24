@@ -10,7 +10,6 @@
 
                 <li>
                     <a href="{{url('/admin')}}">
-                        <span class="badge bg-success float-end">7</span>
                         <i class="fe-airplay"></i>
                         <span> Dashboard </span>
                     </a>

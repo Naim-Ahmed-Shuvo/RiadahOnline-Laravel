@@ -13,11 +13,16 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
-        <div class="carousel-item active">
+        @forelse ($sliders as $key=>$item)
+
+        <div class="carousel-item {{$key == 0 ? 'active' : '' }}">
             <img class="d-block w-100"
-                src="{{asset('')}}/public/assets/web/img/Homepage_banner.png"
+                src="{{url($item->image)}}"
                 alt="First slide">
         </div>
+        @empty
+           {{ 'no slider' }}
+        @endforelse
         {{-- <div class="carousel-item">
             <img class="d-block w-100" src="https://www.wallpapertip.com/wmimgs/230-2305920_digital-print-wallpaper.jpg"
                 alt="Second slide">
@@ -99,7 +104,7 @@ $locale = app()->getLocale();
         <div class="row">
             <div class="col-lg-5 col-12 col-sm-12 col-md-12">
                 <div class="about-img">
-                    <img src="{{ asset('/public/assets/web') }}/img/about-img.png" class="w-100" alt="about-img">
+                    <img src="{{ asset('assets/web') }}/img/about-img.png" class="w-100" alt="about-img">
                 </div>
             </div>
             <div class="col-lg-7 col-12 col-sm-12 col-md-12">
@@ -179,7 +184,7 @@ $locale = app()->getLocale();
         <div class="row">
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4 my-sm-3 my-md-1 my-lg-0">
                 <div class="project-card">
-                    <img src="{{ asset('/public/assets/web') }}/img/investment-incubator.png" alt="img" style="top: -30%;
+                    <img src="{{ asset('assets/web') }}/img/investment-incubator.png" alt="img" style="top: -30%;
                     left: -19%;
                     width: 350px;">
                     <h3>@lang('homepage.Investment-Incubator')</h3>
@@ -188,14 +193,14 @@ $locale = app()->getLocale();
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4 my-sm-3 my-md-1 my-lg-0">
                 <div class="project-card">
-                    <img src="{{ asset('/public/assets/web') }}/img/marketing logo-03 1.png" alt="img">
+                    <img src="{{ asset('assets/web') }}/img/marketing logo-03 1.png" alt="img">
                     <h3>@lang('homepage.Relationship-Incubator')</h3>
                     <p>@lang('homepage.Relationship-Incubator-text')</p>
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4 my-sm-3 my-md-1 my-lg-0">
                 <div class="project-card">
-                    <img src="{{ asset('/public/assets/web') }}/img/media-incubator.png" alt="img" style="top: -30%;
+                    <img src="{{ asset('assets/web') }}/img/media-incubator.png" alt="img" style="top: -30%;
                     left: -19%;
                     width: 350px;">
                     <h3>@lang('homepage.Media-Incubator')</h3>
@@ -204,7 +209,7 @@ $locale = app()->getLocale();
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4 my-sm-3 my-md-1 my-lg-0">
                 <div class="project-card">
-                    <img src="{{ asset('/public/assets/web') }}/img/design-incubator.png" alt="img">
+                    <img src="{{ asset('assets/web') }}/img/design-incubator.png" alt="img">
                     <h3>@lang('homepage.Design-Incubator')</h3>
                     <p>@lang('homepage.Design-Incubator-text')</p>
                 </div>
@@ -214,14 +219,14 @@ $locale = app()->getLocale();
         <div class="row ">
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4 my-sm-3 my-md-1 my-lg-0">
                 <div class="project-card">
-                    <img src="{{ asset('/public/assets/web') }}/img/care-incubator.png" alt="img">
+                    <img src="{{ asset('assets/web') }}/img/care-incubator.png" alt="img">
                     <h3>@lang('homepage.Mosanf')</h3>
                     <p>@lang('homepage.Mosanf-text')</p>
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4 my-sm-3 my-md-1 my-lg-0">
                 <div class="project-card">
-                    <img src="{{ asset('/public/assets/web') }}/img/data-incubator.png" alt="img" style="top: 11%;
+                    <img src="{{ asset('assets/web') }}/img/data-incubator.png" alt="img" style="top: 11%;
                     left: 14%;
                     ">
                     <h3>@lang('homepage.Data-Incubator')</h3>
@@ -230,7 +235,7 @@ $locale = app()->getLocale();
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4 my-sm-3 my-md-1 my-lg-0">
                 <div class="project-card">
-                    <img src="{{ asset('/public/assets/web') }}/img/training-incubator.png" alt="img" style="top: -30%;
+                    <img src="{{ asset('assets/web') }}/img/training-incubator.png" alt="img" style="top: -30%;
                     left: -19%;
                     width: 350px;">
                     <h3>@lang('homepage.Training-Incubator')</h3>
@@ -239,7 +244,7 @@ $locale = app()->getLocale();
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4">
                 <div class="project-card" style="margin-top: -23px;">
-                    <img src="{{ asset('/public/assets/web') }}/img/tec-incubator.png" alt="img">
+                    <img src="{{ asset('assets/web') }}/img/tec-incubator.png" alt="img">
                     <h3>@lang('homepage.Technical-Incubator')</h3>
                     <p>@lang('homepage.Technical-Incubator-text')</p>
                 </div>

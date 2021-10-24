@@ -46,7 +46,7 @@
     }
     .form .div div button{
         height: 30px !important;
-        
+
         font-size: 13px;
     }
 
@@ -113,7 +113,7 @@
         width: 26px !important;
     }
     .info-tem p {
-       
+
         width: 221px  !important;
     }
     /* partner./ */
@@ -133,7 +133,7 @@
     }
     .query .query-header h4{
         font-size: 33px !important;
-        
+
     }
     .query .query-header p{
         width: 273px !important;
@@ -197,7 +197,7 @@
         margin-left: 0 !important;
         margin-top: 20px !important;
     }
-    
+
     /* .main-partner */
     .main-partner{
         padding-top: 30px !important;
@@ -214,7 +214,7 @@
 /* ..........----------------.................... */
 /* xs */
 @media (max-width: 575.98px) {
-    
+
 
     /* --------------index page------------------------- */
     header{
@@ -234,13 +234,13 @@
     .header-logo img{
         width: 100px;
     }
- 
+
     /* carousel */
     .carousel-item img{
      height: 189px !important;
     }
     /* carousel./ */
- 
+
     /* form */
     .form .div {
         padding: 26px 10px !important;
@@ -260,10 +260,10 @@
      }
      .form .div div button{
          height: 30px !important;
-         
+
          font-size: 13px;
      }
- 
+
      /* testimonial */
      .testimonial .cardd {
          display: flex;
@@ -272,7 +272,7 @@
      .testimonial .cardd .card-text{
         left: 29% !important;
      }
- 
+
      /* about */
      .about img{
          width: 100% !important;
@@ -294,7 +294,7 @@
          margin-left: 28%;
      }
      /* about./ */
- 
+
      /*partner */
      .partner {
          margin-top: 47px !important;
@@ -328,11 +328,11 @@
          width: 26px !important;
      }
      .info-tem p {
-        
+
          width: 221px  !important;
      }
      /* partner./ */
- 
+
      /* projects */
      .projects{
          margin-top: 706px !important;
@@ -349,14 +349,14 @@
         margin: 0 auto !important;
      }
      /* projects./ */
- 
+
      /* query */
      .query .query-header{
          padding-top: 45px !important;
      }
      .query .query-header h4{
          font-size: 33px !important;
-         
+
      }
      .query .query-header p{
          width: 273px !important;
@@ -380,7 +380,7 @@
        padding: 393px 0px !important;
      }
      /* query./ */
- 
+
      /* footer */
      .footer-top .contain1 h1{
          font-size: 16px;
@@ -435,7 +435,7 @@
         height: 299px !important;
        }
        /* carousel./ */
-    
+
        /* form */
        .form .div {
            padding: 26px 10px !important;
@@ -455,10 +455,10 @@
         }
         .form .div div button{
             height: 30px !important;
-            
+
             font-size: 13px;
         }
-    
+
         /* testimonial */
         .testimonial .cardd {
             display: flex;
@@ -470,7 +470,7 @@
         .testimonial .cardd .card-text{
            left: 29% !important;
         }
-    
+
         /* about */
         .about img{
             width: 100% !important;
@@ -492,7 +492,7 @@
             margin-left: 28%;
         }
         /* about./ */
-    
+
         /*partner */
         .partner {
             margin-top: 47px !important;
@@ -526,11 +526,11 @@
             width: 26px !important;
         }
         .info-tem p {
-           
+
             width: 221px  !important;
         }
         /* partner./ */
-    
+
         /* projects */
         .indexpage-projects{
             margin-top: 706px !important;
@@ -547,14 +547,14 @@
            margin: 0 auto !important;
         }
         /* projects./ */
-    
+
         /* query */
         .query .query-header{
             padding-top: 45px !important;
         }
         .query .query-header h4{
             font-size: 33px !important;
-            
+
         }
         .query .query-header p{
             width: 273px !important;
@@ -578,7 +578,7 @@
           padding: 393px 0px !important;
         }
         /* query./ */
-    
+
         /* footer */
         .footer-top .contain1 h1{
             font-size: 16px;
@@ -615,9 +615,9 @@
 
    /* form */
     .form .div {
-        
+
         padding: 20px 10px  !important;
-       
+
     }
     .form .div div{
         margin: 0 auto !important;
@@ -677,12 +677,15 @@
 
 /* lg */
 @media (min-width: 992px) and (max-width: 1199.98px) {
+    .mobile-menu-bar{
+        display: none !important;
+    }
     /* query */
     .query-form {
         padding: 20px 45px !important;
         width: 70%  !important;
         left: 13%  !important;
-       
+
     }
     /* query./ */
 
@@ -701,7 +704,9 @@
 
 /* xl */
 @media (min-width: 1200px) {
-    
+    .mobile-menu-bar{
+        display: none !important;
+    }
 }
 
 /* indexpage./ */

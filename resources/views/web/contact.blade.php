@@ -48,7 +48,7 @@
         <div class="row">
             <div class="col">
                 <div class="form-main">
-                    <form action="{{url('/submit/contact/form')}}" method="post">
+                    <form action="{{route('submit.form')}}" method="post">
                         @csrf
                     <div class="inputs">
                         <div class="text-input">

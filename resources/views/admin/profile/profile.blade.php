@@ -19,7 +19,7 @@
                     </div>
                 </div> --}}
                 <div class="d-flex align-items-start">
-                    <img src="{{url(Auth::user()->img)}}" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
+                    <img src="{{url(Auth::user()->img??'')}}" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
                     <div class="w-100 ms-3">
                         <h4 class="my-0 text-capitalize">{{$user->name??'nai'}}</h4>
                         <p class="text-muted mb-2 font-13 text-capitalize"> <span class="ms-2">{{$user->role??'nai'}}</span></p>

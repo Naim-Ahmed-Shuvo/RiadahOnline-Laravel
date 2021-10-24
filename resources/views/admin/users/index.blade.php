@@ -31,7 +31,7 @@
                             <tr>
                                 <th scope="row">{{$key+1}}</th>
                                 <td>
-                                    <img src="{{url($item->img)}}" alt="img" height="80" width="100">
+                                    <img src="{{url($item->img??'')}}" alt="img" height="80" width="100">
                                 </td>
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->mobile_number}}</td>

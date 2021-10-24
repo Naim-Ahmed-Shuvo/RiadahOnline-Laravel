@@ -11,7 +11,8 @@
 
             <li class="dropdown notification-list topbar-dropdown">
                 <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="{{url(Auth::user()->img)}}" alt="user-image" class="rounded-circle">
+                    <img src="{{url(Auth::user()->img??'')}}" alt="user-image" class="rounded-circle">
+                    {{-- @dump(url()) --}}
                     <span class="pro-user-name ms-1 text-capitalize">
                         {{Auth::user()->name}} <i class="mdi mdi-chevron-down"></i>
                     </span>
@@ -39,23 +40,23 @@
 
         <!-- LOGO -->
         <div class="logo-box">
-            <a href="index-2.html" class="logo logo-dark text-center">
+            <a href="{{url('/admin')}}" class="logo logo-dark text-center">
                 <span class="logo-sm">
                     <img src="assets/images/logo-sm.png" alt="" height="22">
                     {{-- <span class="logo-lg-text-light">Codefox</span> --}}
                 </span>
                 <span class="logo-lg">
-                    <img src="{{asset('/public/assets/admin')}}/images/logo-dark.png" alt="" height="20">
+                    <img src="{{asset('assets/admin')}}/images/logo-dark.png" alt="" height="20">
                     <!-- <span class="logo-lg-text-light">U</span> -->
                 </span>
             </a>
 
-            <a href="index-2.html" class="logo logo-light text-center">
+            <a href="{{url('/admin')}}" class="logo logo-light text-center">
                 <span class="logo-sm">
-                    <img src="{{ asset('/public/assets/web') }}/img/header-logo.png" alt="" height="22">
+                    <img src="{{ asset('assets/web') }}/img/header-logo.png" alt="" height="22">
                 </span>
                 <span class="logo-lg">
-                    <img src="{{ asset('/public/assets/web') }}/img/header-logo.png" style="margin-top: 15px" alt="" height="38">
+                    <img src="{{ asset('assets/web') }}/img/header-logo.png" style="margin-top: 15px" alt="" height="38">
                 </span>
             </a>
         </div>

@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\ServiceController;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +25,11 @@ Route::view('contact', 'web.contact')->name('contact');
 
 // service
 Route::match(['get', 'post'], 'servicepage/{cat_id?}',[ServiceController::class,'index']);
-Route::match(['get','post'],'service-details/{id?}/{cat_id?}', [ServiceController::class,'serviceDetails']);
+Route::match(['get','post'],'service-details/{id?}/{cat_id?}', [ServiceController::class,'serviceDetails'])->name('service.details');
+
+// cart
+Route::match(['get','post'],'cart', [CartController::class,'index']);
+Route::match(['get','post'],'shop-page', [CartController::class,'viewShopPage']);
 
 
 // contact from

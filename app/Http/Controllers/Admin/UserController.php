@@ -28,7 +28,7 @@ class UserController extends Controller
                 'email'=>$request->email,
                 'password'=>Hash::make($request->password),
                 'role'=>$request->role,
-                'img'=>'public/userimg/'.$img_name,
+                'img'=>'userimg/'.$img_name,
                 'company_name'=>$request->company_name,
                 'mobile_number'=>$request->phone,
                 'created_at'=>Carbon::now()
@@ -95,7 +95,7 @@ class UserController extends Controller
                 'email'=>$request->email??$img_info->email,
                 'password'=>$request->password?Hash::make($request->password):$img_info->password,
                 'role'=>$request->role??$img_info->role,
-                'img'=>'public/userimg/'.$img_name,
+                'img'=>'userimg/'.$img_name,
                 'company_name'=>$request->company_name??$img_info->company_name,
                 'mobile_number'=>$request->phone??$img_info->mobile_number,
                 'updated_at'=>Carbon::now()

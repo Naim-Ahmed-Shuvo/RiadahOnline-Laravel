@@ -1,0 +1,50 @@
+/* shoppage__main */
+.shoppage__main{
+    padding: 60px 0px;
+}
+.shoppage__main .contact__form{
+  /* padding: 20px; */
+}
+.shoppage__main .contact__form__title{
+  padding: 20px 0px;
+  background: #ECECEC;
+  font-family: 'Poppins',sans-serif;
+  font-size: 22px;
+  color: #333333;
+}
+.shoppage__main form{
+    padding: 20px 40px;
+}
+.shoppage__main .inputs {
+    /* padding: 20px 30px; */
+    margin-bottom: 40px;
+}
+.shoppage__main .inputs label{
+    display: block;
+  font-family: 'Poppins',sans-serif;
+  font-size: 16px;
+  color: #555555;
+}
+.shoppage__main .inputs input{
+    width: 100%;
+    padding: 8px 10px;
+    border: none;
+    outline: none;
+    border: 1px solid#CCCCCC;
+    border-radius: 7px;
+}
+.shoppage__main .inputs textarea{
+    width: 100%;
+    padding: 8px 10px;
+    border: none;
+    outline: none;
+    border: 1px solid#CCCCCC;
+    border-radius: 7px;
+}
+.shoppage__main .inputs a{
+    text-decoration: none !important;
+    padding: 9px 20px;
+    background: #6B438A;
+    color: #FAFAFA !important;
+}
+/* shoppage__main./ */

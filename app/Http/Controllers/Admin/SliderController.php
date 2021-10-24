@@ -22,7 +22,7 @@ class SliderController extends Controller
            $img->move($path,$img_name);
 
            $slider = Slider::create([
-             'image'=>'public/sliderimg/'.$img_name
+             'image'=>'sliderimg/'.$img_name
            ]);
 
            if($slider){
@@ -62,7 +62,7 @@ class SliderController extends Controller
             $img->move($path,$img_name);
 
             $slider = Slider::where('id',$request->slider_id)->update([
-              'image'=>'public/sliderimg/'.$img_name
+              'image'=>'sliderimg/'.$img_name
             ]);
 
             if($slider){

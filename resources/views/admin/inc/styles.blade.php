@@ -5,13 +5,13 @@
 <meta content="Coderthemes" name="author" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <!-- App favicon -->
-<link rel="shortcut icon" href="{{asset('public/assets/admin')}}/images/favicon.ico">
+<link rel="shortcut icon" href="{{asset('assets/admin')}}/images/favicon.ico">
 
 <!-- App css -->
-<link href="{{asset('public/assets/admin')}}/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
-<link href="{{asset('public/assets/admin')}}/css/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
+<link href="{{asset('assets/admin')}}/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
+<link href="{{asset('assets/admin')}}/css/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
 
 <!-- icons -->
-<link href="{{asset('public/assets/admin')}}/css/icons.min.css" rel="stylesheet" type="text/css" />
-<link href="{{asset('public/assets/admin')}}/css/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
-<link href="{{asset('public/assets/admin')}}/css/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
+<link href="{{asset('assets/admin')}}/css/icons.min.css" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/admin')}}/css/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
+<link href="{{asset('assets/admin')}}/css/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SliderController;
@@ -10,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware'=>'auth'],function () {
 
-    Route::view('/admin','admin.index')->name('admin');
+    Route::get('/admin',[AdminController::class,'index'])->name('admin');
 
     // service
     Route::resource('service',ServiceController::class);
@@ -22,7 +23,7 @@ Route::group(['middleware'=>'auth'],function () {
 
     // profile
     Route::get('profile',[ProfileController::class,'index'])->name('admin.profile');
-    Route::get('profile-view',[ProfileController::class,'view']);
+    Route::get('profile-view',[ProfileController::class,'profileview']);
     Route::post('profile-update',[ProfileController::class,'update'])->name('profile.update');
 
     //user

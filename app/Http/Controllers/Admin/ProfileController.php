@@ -36,7 +36,7 @@ class ProfileController extends Controller
                 'role'=> $request->role,
                 'mobile_number'=> $request->phone,
                 'company_name'=> $request->company_name,
-                'img'=> 'public/userimg/'.$img_name,
+                'img'=> 'userimg/'.$img_name,
                 'updated_at' => Carbon::now()
             ]);
             Session::flash('message', 'profile updated');
@@ -56,15 +56,16 @@ class ProfileController extends Controller
         }
     }
 
-    public function view()
+    public function profileview()
     {
         # code...
 
         $users = User::latest()->get();
+        // return $users;
         return view('admin.users.index',['users'=>$users]);
     }
 
-   
+
 
 
 }

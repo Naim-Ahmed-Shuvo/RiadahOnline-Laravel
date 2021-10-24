@@ -21,6 +21,11 @@ class CreateServicesTable extends Migration
             $table->longText('description')->nullable();
             $table->longText('description_ar')->nullable();
             $table->string('image')->nullable();
+            $table->string('tags')->nullable();
+            $table->string('price')->nullable();
+            $table->longText('information')->nullable();
+            $table->string('vendor')->nullable();
+            $table->string('reviews')->nullable();
             $table->timestamps();
         });
     }

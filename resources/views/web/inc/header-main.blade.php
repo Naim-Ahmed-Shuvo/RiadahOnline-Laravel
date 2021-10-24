@@ -4,7 +4,7 @@
             <div class="col-5">
                 <div class="header-logo">
                     <a href="{{url('/')}}">
-                        <img src="{{ asset('/public/assets/web') }}/img/header-logo.png" alt="header-logo">
+                        <img src="{{ asset('/assets/web') }}/img/header-logo.png" alt="header-logo">
                     </a>
                 </div>
             </div>

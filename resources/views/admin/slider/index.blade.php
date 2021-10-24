@@ -18,7 +18,9 @@
                         <th scope="col">Action</th>
                       </tr>
                     </thead>
+
                     <tbody class="slider__tbody">
+                        <p class="text-center d-none sliderload">loading...</p>
                       {{-- <tr>
                         <th scope="row">1</th>
                         <td>Mark</td>
@@ -46,11 +48,19 @@
 
           //fetch sliders
           function fetchSlider(){
+              let loading = true;
+            //   if(loading){
+            //             $('.slider__tbody').append('<p class="text-center">Loading..</p>')
+            //           }
               $.ajax({
                   url: `{{url('fetchslider')}}`,
                   method: 'get',
+                  beforeSend: function(){
+                       $('.sliderload').removeClass('d-none')
+                    },
                   success:function(res){
                       console.log(res)
+                      $('.sliderload').addClass('d-none')
                       $.each(res , function( index, value ) {
                             console.log( index , ": " , value );
                             $('.slider__tbody').append(`
@@ -66,6 +76,7 @@
                                     </tr>
 
                             `)
+
                         })
                   }
               })
@@ -115,7 +126,7 @@
 
                                $('#sliderform').trigger("reset")
                                $('.slidermodal').modal('hide')
-                               fetchSlider()
+                               location.reload()
                           }
                       }
                   })

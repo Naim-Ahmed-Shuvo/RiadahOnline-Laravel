@@ -16,7 +16,7 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <div class="partner-card ">
                     <div class="partner-card-img" style="top: -9%;left:6%">
-                        <img src="{{asset('public/assets/web')}}/img/riadah-incubator.png" class="w-100" alt="img">
+                        <img src="{{asset('assets/web')}}/img/riadah-incubator.png" class="w-100" alt="img">
                     </div>
                     <div class="partner-card-text">
                         <h4> @lang('partnerspage.Riadah Incubators') </h4>
@@ -27,7 +27,7 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <div class="partner-card ">
                     <div class="partner-card-img">
-                        <img src="{{asset('public/assets/web')}}/img/economic-incubator.png" class="w-100" alt="img">
+                        <img src="{{asset('assets/web')}}/img/economic-incubator.png" class="w-100" alt="img">
                     </div>
                     <div class="partner-card-text">
                         <h4> @lang('partnerspage.Economic Incubator') </h4>
@@ -38,7 +38,7 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <div class="partner-card ">
                     <div class="partner-card-img">
-                        <img src="{{asset('public/assets/web')}}/img/dis-leader.png" alt="img">
+                        <img src="{{asset('assets/web')}}/img/dis-leader.png" alt="img">
                     </div>
                     <div class="partner-card-text">
                         <h4> @lang('partnerspage.Discovering Leadership') </h4>
@@ -49,7 +49,7 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <div class="partner-card ">
                     <div class="partner-card-img">
-                        <img src="{{asset('public/assets/web')}}/img/event-incubator.png" alt="img">
+                        <img src="{{asset('assets/web')}}/img/event-incubator.png" alt="img">
                     </div>
                     <div class="partner-card-text">
                         <h4> @lang('partnerspage.Event Incubators') </h4>
@@ -62,7 +62,7 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <div class="partner-card ">
                     <div class="partner-card-img">
-                        <img src="{{asset('public/assets/web')}}/img/job-incubator.png" alt="img">
+                        <img src="{{asset('assets/web')}}/img/job-incubator.png" alt="img">
                     </div>
                     <div class="partner-card-text">
                         <h4>@lang('partnerspage.Job Incubators') </h4>
@@ -73,7 +73,7 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <div class="partner-card ">
                     <div class="partner-card-img">
-                        <img src="{{asset('public/assets/web')}}/img/marketing logo-01 1.png" alt="img">
+                        <img src="{{asset('assets/web')}}/img/marketing logo-01 1.png" alt="img">
                     </div>
                     <div class="partner-card-text">
                         <h4> @lang('partnerspage.Marketing Incubators') </h4>
@@ -84,7 +84,7 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <div class="partner-card ">
                     <div class="partner-card-img" style="top: -17%;left:-6%;">
-                        <img src="{{asset('public/assets/web')}}/img/tec-incubator.png" alt="img">
+                        <img src="{{asset('assets/web')}}/img/tec-incubator.png" alt="img">
                     </div>
                     <div class="partner-card-text">
                         <h4>@lang('partnerspage.Technical Incubator') </h4>
@@ -95,7 +95,7 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <div class="partner-card ">
                     <div class="partner-card-img" style="top: 11%;left:18%;">
-                        <img src="{{asset('public/assets/web')}}/img/data-incubator.png" alt="img">
+                        <img src="{{asset('assets/web')}}/img/data-incubator.png" alt="img">
                     </div>
                     <div class="partner-card-text">
                         <h4> @lang('partnerspage.Data Incubator') </h4>

@@ -72,7 +72,7 @@
                                     <div class="auth-logo">
                                         <a href="index-2.html" class="logo logo-dark text-center">
                                             <span class="logo-lg">
-                                                <img src="{{asset('public/assets/web')}}/img/header-logo.png" alt="" height="70">
+                                                <img src="{{asset('assets/web')}}/img/header-logo.png" alt="" height="70">
                                             </span>
                                         </a>
 
