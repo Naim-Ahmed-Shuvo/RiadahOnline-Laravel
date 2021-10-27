@@ -24,6 +24,7 @@ class CreateServicesTable extends Migration
             $table->string('tags')->nullable();
             $table->string('price')->nullable();
             $table->longText('information')->nullable();
+            $table->longText('information_ar')->nullable();
             $table->string('vendor')->nullable();
             $table->string('reviews')->nullable();
             $table->timestamps();

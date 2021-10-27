@@ -16,7 +16,7 @@ Route::group(['middleware'=>'auth'],function () {
     // service
     Route::resource('service',ServiceController::class);
     Route::post('service/update/{id}',[ServiceController::class,'update']);
-    Route::delete('service/delete/{id}',[ServiceController::class,'destroy']);
+    Route::get('service/delete/{id}',[ServiceController::class,'destroy']);
 
     //category
     Route::resource('category',CategoryController::class);

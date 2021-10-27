@@ -39,8 +39,10 @@
                             <td>{{makeDotAtLast($item->description)}}</td>
                             <td>{{makeDotAtLast($item->description_ar)}}</td>
                             <td>
-                                <a class="btn btn-sm btn-info editservice" data-id="{{$item->id}}"><i class="fas fa-edit"></i></a>
-                                <a class="btn btn-sm btn-danger delservice" data-id="{{$item->id}}"><i class="fas fa-trash-alt"></i></a>
+                                <a class="btn btn-sm btn-info" href="{{url('service/'.$item->id.'/edit')}}"><i class="fas fa-edit"></i></a>
+
+                                <a class="btn btn-sm btn-danger" href="{{url('service/delete/'.$item->id)}}" type="submit"><i class="fas fa-trash-alt"></i></a>
+
                             </td>
                         </tr>
                         @empty
@@ -50,69 +52,8 @@
                     </tbody>
                   </table>
 
-                 <!-- Modal -->
-                    <div class="modal servicemodal bd-example-modal-lg fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Edit Service</h5>
-                            </div>
-                            <div class="modal-body">
-                                <form _lpchecked="1" id="serviceform" enctype="multipart/form-data">
-                                    {{-- @csrf --}}
-                                    <div class="row">
-                                        <input type="text" hidden id="hidden_id" name="hidden_id">
-                                        <div class="mb-3 col-6">
-                                            <label for="simpleinput" class="form-label">Title</label>
-                                            <input type="text" name="title" id="simpleinput" class="form-control">
-                                        </div>
-                                        <div class="mb-3 col-6">
-                                            <label for="simpleinput"  class="form-label">Title Arabic</label>
-                                            <input type="text" name="title_ar" id="simpleinput" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        @php
-                                            $categories = DB::table('categories')->pluck('id','name');
-                                        @endphp
-                                        <label for="simpleinput" class="form-label">Category</label>
-                                        <select class="form-select" id="example-select" name="cat_id">
-                                            <option selected> ---Select---- </option>
-                                            @forelse ($categories as $item => $id)
-                                              <option value="{{$id}}">{{$item}} </option>
-                                            @empty
-                                                {{ 'no data' }}
-                                            @endforelse
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="simpleinput" class="form-label">Image</label>
-                                        <input type="file" name="img" id="example-fileinput" class="form-control">
-                                    </div>
 
 
-
-
-                                    <div class="row">
-                                        <div class="mb-3 col-6">
-                                            <label for="example-textarea" class="form-label">Deascription</label>
-                                            <textarea class="form-control" name="description" id="example-textarea" rows="5"></textarea>
-                                        </div>
-                                        <div class="mb-3 col-6">
-                                            <label for="example-textarea" class="form-label">Deascription Arabic</label>
-                                            <textarea class="form-control" name="description_ar" id="example-textarea" rows="5"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    {{-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque voluptates sapiente eum possimus, eius dicta veniam dolorem quis cum ut ex rem natus, et quam esse maxime voluptatibus perferendis corrupti? --}}
             </div>
         </div>
     </div>

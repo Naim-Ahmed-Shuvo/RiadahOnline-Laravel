@@ -2,6 +2,7 @@
 
 
  @section('main')
+ {{-- @dd(Cart::total()) --}}
  <section class="cart__main pb-5">
     <div class="container">
         <div class="row my-5">
@@ -18,6 +19,9 @@
                 </div>
             </div>
         </div>
+        @php
+            echo Cart::content();
+        @endphp
         <div class="row">
             <div class="col-12">
                 <div class="cart_table">
@@ -31,6 +35,9 @@
                             </tr>
                         </thead>
                         <tbody>
+
+                            @forelse (Cart::content() as $cart)
+
                             <tr>
                               <td scope="row">
                                   <div class="service__name__card d-flex">
@@ -38,9 +45,8 @@
                                           <img src="{{asset('/assets/web/img')}}/Rectangle 27.png" alt="img" height="131">
                                       </div>
                                      <div class="card__infotext">
-                                        <h4>Business Colsulting for
-                                            growing</h4>
-                                         <p class="card__infotext__category">Category: <span>Economic Consulting</span></p>
+                                        <h4>{{$cart->name}}</h4>
+                                         <p class="card__infotext__category">Category: <span>{{$cat_name}}</span></p>
                                          <div class="service__type">
                                              <p>Service type:</p>
                                              <div class="buttons">
@@ -53,18 +59,21 @@
                               </td>
                               <td>
                                   <div class="cart__inc_dec d-flex">
-                                      <p>02</p>
-                                      <a href=""><i class="fas fa-plus"></i></a>
-                                      <a href=""><i class="fas fa-minus"></i></a>
+                                      <p>{{$cart->qty}}</p>
+                                      <a href="{{url("increase_qty/".$cart->rowId)}}"><i class="fas fa-plus"></i></a>
+                                      <a href="{{url("decrease_qty/".$cart->rowId)}}"><i class="fas fa-minus"></i></a>
                                   </div>
                               </td>
                               <td>
                                 <p style="margin-top: 30px !important; color: #555555; font-weight: 600;font-family: 'Poppins',sans-serif; text-align: center;">25 days</p>
                               </td>
                               <td>
-                                  <p style="margin-top: 30px !important; color: #555555; font-weight: 600;font-family: 'Poppins',sans-serif; text-align: center;">$250</p>
+                                  <p style="margin-top: 30px !important; color: #555555; font-weight: 600;font-family: 'Poppins',sans-serif; text-align: center;">${{Cart::subtotal()}}</p>
                               </td>
                             </tr>
+                            @empty
+
+                            @endforelse
                           </tbody>
                     </table>
                 </div>
@@ -75,10 +84,10 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-end">
                 <div class="calucalte__total">
-                    <p>Sub-Total  <span class="price1"> = $250.00</span></p>
-                    <p>VAT <span class="price2"> =$ 01.00</span></p>
+                    <p>Sub-Total  <span class="price1"> = ${{Cart::subtotal()}}</span></p>
+                    <p>VAT <span class="price2"> =$ {{Cart::tax()}}</span></p>
                     <hr class="total__devider__line">
-                    <p class="mb-5">VAT <span class="price3"> =$ 01.00</span></p>
+                    <p class="mb-5">Total <span class="price3"> =$ {{Cart::total()}}</span></p>
 
                     <a href="#">Back to Home</a>
                     <a href="#">Continue >></a>

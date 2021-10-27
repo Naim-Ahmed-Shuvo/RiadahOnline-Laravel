@@ -16,5 +16,11 @@ class Service extends Model
         'description',
         'description_ar',
         'image',
+        'tags',
+        'price',
+        'information',
+        'vendor',
+        'reviews',
+        'information_ar'
     ];
 }

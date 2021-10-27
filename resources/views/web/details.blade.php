@@ -164,13 +164,12 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-5">
                     <div class="card__image">
-                        <img src="{{asset('/assets/web/img')}}/Rectangle 27.png" alt="img">
+                        <img src="{{url($service->image)}}" alt="img">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-7">
                   <div class="card__text p-4">
-                      <h4 class="card__text__title">Business Colsulting for
-                        growing</h4>
+                      <h4 class="card__text__title">{{$service->title}}</h4>
                        <div class="card__review d-flex my-3">
                            <p class="mr-2">Customer Reviews: </p>
                            <div class="stars mr-2">
@@ -184,20 +183,26 @@
                                (120/5)
                            </div>
                        </div>
-                       <p class="card__text__details__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                       <p class="card__text__details__text">{{$service->description}}</p>
+                       @php
+                           function getTagsArr($tags){
+                               $tags_arr = explode(',',$tags);
+                               return $tags_arr;
+                           }
+                       @endphp
                        <div class="reated__tags">
                            <p>Related Tags:</p>
-                           <span>Website</span>
-                           <span>Website</span>
-                           <span>Website</span>
-                           <span>Website</span>
-                           <span>Website</span>
-                           <span>Website</span>
-                           <span>Website</span>
+                           @forelse (getTagsArr($service->tags) as $item)
+
+                           <span>{{$item}}</span>
+                           @empty
+                             {{ "no tags" }}
+                           @endforelse
+
                       </div>
                       <div class="buttons">
-                          <a href="#">Place Order</a>
-                          <a href="#" class="ml-4">Contact us</a>
+                          <a href="{{url("place-order/".$service->id)}}">Place Order</a>
+                          <a href="{{route("contact")}}" class="ml-4">Contact us</a>
                       </div>
                       <div class="share">
                           <span>Share:</span>
@@ -223,24 +228,18 @@
         <div class="row">
             <div class="col-12">
                 <div class="tabs">
-                    <a href="#" class="active">
-                        <span>Description</span>
-                    </a>
-                    <a href="#">
-                        <span>Information</span>
-                    </a>
-                    <a href="#">
-                        <span>Vendor</span>
-                    </a>
-                    <a href="#">
-                        <span>Reviews</span>
-                    </a>
+                    @forelse (['Description','Information','Vendor','Reviews'] as $item)
+                        <a style=" cursor :pointer;" class="active_tab">
+                            <span id="tab" data-id="{{$service->id}}">{{$item}}</span>
+                        </a>
+                    @empty
+
+                    @endforelse
+
                 </div>
                 <div class="tabs__details shadow">
-                    <p>
-                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
-                           <br><br>
-                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
+                    <p id="tab_data">
+                        {{$service->description}}
                     </p>
                 </div>
             </div>
@@ -303,3 +302,79 @@
 </section>
 <!-- details__redesign__slider./ -->
 @endsection
+
+@push('js')
+
+ <script>
+     $(document).ready(function(){
+        //  console.log('hello')
+         $(document).on('click','#tab',function(){
+
+
+             let tab = $(this).text().toLowerCase();
+             let service_id = $(this).data('id');
+
+
+            //making active tab
+             let tabs = document.getElementsByClassName('active_tab');
+             console.log( tabs[0]);
+             for(let i=0;i<tabs.length;i++){
+                tabs[i].innerText.toLowerCase() == tab ? tabs[i].classList.add('active') : tabs[i].classList.remove('active');
+             }
+
+
+             $.ajax({
+                 url: `{{url('get_tabdata/${tab}/${service_id}')}}`,
+                 method:'get',
+                 success:function(res){
+                     console.log(res);
+                     if(typeof res.tab == 'object'){
+                         let {name,email,company_name,phone} = res.tab
+                         $('#tab_data').html(`
+
+                         <p>verndor name: ${name}</p> <br>
+                         <p>verndor email: ${email}</p> <br>
+                         <p>verndor email: ${email}</p> <br>
+                         <p>verndor phone: ${phone}</p> <br>
+                         <p>company name: ${company_name}</p> <br>
+
+                         `)
+                     } else{
+
+                       $('#tab_data').text(res.tab)
+                     }
+                 }
+             })
+         })
+     })
+ </script>
+@endpush
+
+{{-- CREATE TABLE employess (
+    id int NOT NULL,
+    user_id int NOT NULL,
+    name varchar(200) NOT NULL,
+    working_days int(200),
+    salary varchar(220) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE ;
+);
+
+CREATE TABLE projects (
+    id int NOT NULL,
+    emop_id int NOT NULL,
+    project_name varchar(200) NOT NULL,
+    details varchar(220) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (emop_id) REFERENCES employess(id) ON UPDATE CASCADE ON DELETE CASCADE ;
+);
+
+CREATE TABLE salary (
+    id int NOT NULL,
+    emop_id int NOT NULL,
+    amount varchar(200) NOT NULL,
+    paid varchar(220) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (emop_id) REFERENCES employess(id) ON UPDATE CASCADE ON DELETE CASCADE ;
+); --}}
+

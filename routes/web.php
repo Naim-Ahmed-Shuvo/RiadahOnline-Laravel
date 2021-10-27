@@ -26,10 +26,15 @@ Route::view('contact', 'web.contact')->name('contact');
 // service
 Route::match(['get', 'post'], 'servicepage/{cat_id?}',[ServiceController::class,'index']);
 Route::match(['get','post'],'service-details/{id?}/{cat_id?}', [ServiceController::class,'serviceDetails'])->name('service.details');
+Route::match(['get','post'],'get_tabdata/{tab}/{service_id}', [ServiceController::class,'getTabData']);
 
 // cart
 Route::match(['get','post'],'cart', [CartController::class,'index']);
 Route::match(['get','post'],'shop-page', [CartController::class,'viewShopPage']);
+Route::match(['get','post'],'place-order/{id}', [CartController::class,'addToCart']);
+Route::match(['get','post'],'remove-cart', [CartController::class,'removeCart']);
+Route::match(['get','post'],'increase_qty/{rowId}', [CartController::class,'increaseQty']);
+Route::match(['get','post'],'decrease_qty/{rowId}', [CartController::class,'decreaseQty']);
 
 
 // contact from

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Service;
+use App\Models\Vendor;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -57,6 +58,40 @@ class ServiceController extends Controller
 
 
         return view('web.details',['service'=>$service,'services'=>$services,'category'=>$category,'categories'=>$categories,'id'=>$id,'cat_id'=>$cat_id]);
+    }
+
+    public function getTabData($tab,$service_id)
+    {
+
+
+         function getTab($tab,$service_id)
+        {
+            switch ($tab) {
+
+                case 'description':
+                     $description = Service::where("id",$service_id)->pluck('description');
+                     return $description[0];
+                    break;
+                case 'information':
+                    $information =   Service::where("id",$service_id)->pluck('information');
+                    return $information[0];
+                    break;
+                case 'vendor':
+                    $service = Service::where("id",$service_id)->first();
+                    return  Vendor::find($service->vendor);
+                    break;
+                case 'reviews':
+                    $reviews =   Service::where("id",$service_id)->pluck('reviews');
+                    return $reviews[0];
+                    break;
+
+                default:
+                    return false;
+                    break;
+            }
+
+        }
+        return response()->json(['tab'=>getTab($tab,$service_id)],200);
     }
 
 

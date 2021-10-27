@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Service;
+use App\Models\Vendor;
 use Carbon\Carbon;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session as FacadesSession;
 
 class ServiceController extends Controller
 {
@@ -40,19 +43,47 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request->all();
          if($request->img){
              $img_name = time().'.'.$request->file('img')->getClientOriginalExtension();
              $request->img->move(public_path('images'), $img_name);
 
+             //inserting vendor data
+              $vendor_id= Vendor::insertGetId([
+                'name'=>$request->v_name,
+                'email'=>$request->v_email,
+                'phone'=>$request->v_phone,
+                'company_name'=>$request->v_c_name,
+                'created_at'=>Carbon::now()
+              ]);
+
+              //inserting service data
              $service = Service::create([
                  'title'=>$request->title,
                  'title_ar'=>$request->title_ar,
                  'cat_id'=>$request->cat_id,
                  'description'=>$request->description,
                  'description_ar'=>$request->description_ar,
-                 'image'=> 'images/'.$img_name
+                 'image'=> 'images/'.$img_name,
+                 'tags'=> $request->tags,
+                 'price'=> $request->price,
+                 'information'=>$request->information,
+                 'information_ar'=>$request->information_ar,
+                 'vendor'=> $vendor_id,
+                 'reviews'=> '5',
+                 'created_at'=>Carbon::now()
              ]);
-
+            //  title
+            //  title_ar
+            //  cat_id
+            //  description
+            //  description_ar
+            //  image
+            //  tags
+            //  price
+            //  information
+            //  vendor
+            //  reviews
 
              return back()->with('success','You have successfully added serivce');
          }
@@ -79,7 +110,10 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        return response()->json($service);
+        $categories = Category::all();
+        $vendor = Vendor::find($service->vendor);
+        return view('admin.service.edit',compact('service','vendor','categories'));
+        // return response()->json($service);
     }
 
     /**
@@ -92,6 +126,7 @@ class ServiceController extends Controller
     public function update(Request $request,$id)
     {
 
+        // return $request->all();
         if ($request->img != null) {
 
             $service_info = Service::where('id', $id)->first();
@@ -104,32 +139,67 @@ class ServiceController extends Controller
             $destinaton_path = public_path('images');
             $img->move($destinaton_path, $img_name);
 
-         Service::where('id',$id)->update([
-                'title'=>$request->title,
-                'title_ar'=>$request->title_ar,
-                'cat_id'=>$request->cat_id,
-                'description'=>$request->description,
-                'description_ar'=>$request->description_ar,
-                'image' => 'images/'.$img_name,
-                'created_at' => Carbon::now(),
+            //update vendor data
+            $vendor_id= Vendor::where('id',$request->vendor_id)->update([
+                'name'=>$request->v_name,
+                'email'=>$request->v_email,
+                'phone'=>$request->v_phone,
+                'company_name'=>$request->v_c_name,
+                'updated_at'=>Carbon::now()
             ]);
 
-            return response()->json(['seccues'=>'with image']);
+         Service::where('id',$id)->update([
+            'title'=>$request->title,
+            'title_ar'=>$request->title_ar,
+            'cat_id'=>$request->cat_id,
+            'description'=>$request->description,
+            'description_ar'=>$request->description_ar,
+            'image'=> 'images/'.$img_name,
+            'tags'=> $request->tags,
+            'price'=> $request->price,
+            'information'=>$request->information,
+            'information_ar'=>$request->information_ar,
+            'vendor'=> $request->vendor_id,
+            'reviews'=> '5',
+            'updated_at'=>Carbon::now()
+            ]);
+
+            FacadesSession::flash("success","service updated");
+            return redirect()->route('service.index');
         }
 
         else{
-           Service::where('id',$id)->update([
-                'title'=>$request->title,
-                'title_ar'=>$request->title_ar,
-                'cat_id'=>$request->cat_id,
-                'description'=>$request->description,
-                'description_ar'=>$request->description_ar,
-                'created_at' => Carbon::now(),
+
+             //update vendor data
+            $vendor_id= Vendor::where('id',$request->vendor_id)->update([
+                'name'=>$request->v_name,
+                'email'=>$request->v_email,
+                'phone'=>$request->v_phone,
+                'company_name'=>$request->v_c_name,
+                'updated_at'=>Carbon::now()
             ]);
 
-            return response()->json(['seccues'=>$request->all()]);
+            //
+           Service::where('id',$id)->update([
+            'title'=>$request->title,
+            'title_ar'=>$request->title_ar,
+            'cat_id'=>$request->cat_id,
+            'description'=>$request->description,
+            'description_ar'=>$request->description_ar,
+            'tags'=> $request->tags,
+            'price'=> $request->price,
+            'information'=>$request->information,
+            'information_ar'=>$request->information_ar,
+            'vendor'=> $request->vendor_id,
+            'reviews'=> '5',
+            'updated_at'=>Carbon::now()
+            ]);
+
+            FacadesSession::flash("success","service updated");
+
+            return redirect()->route('service.index');
         }
-        return response()->json(['seccues'=>$request->all()]);
+        // return response()->json(['seccues'=>$request->all()]);
     }
 
     /**
@@ -138,9 +208,12 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( $id)
     {
+        // return "hello";
         $service = Service::find($id);
+
+        Vendor::where('id',$service->vendor)->delete();
 
         if($service->image){
             unlink($service->image);
@@ -148,6 +221,17 @@ class ServiceController extends Controller
 
         $service->delete();
 
-        return response()->json(['success'=>'service deleted success fully']);
+        FacadesSession::flash("success",'service deleted');
+
+        return redirect()->back();
     }
 }
+
+
+// CREATE TABLE users (
+//     id int NOT NULL PRIMARY KEY,
+//     name varchar(255),
+//     email varchar(255),
+//     phone varchar(255),
+//     password varchar(255)
+// );
