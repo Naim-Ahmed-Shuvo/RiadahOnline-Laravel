@@ -1,132 +1,4 @@
-{{-- @extends('web.layout.app')
 
-@section('main')
-@php
-    $locale = app()->getLocale()
-@endphp
-<!-- form -->
-<section class="details-form">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-               <div class="div">
-
-
-                    <div>
-                        <input type="text" placeholder="<?php echo $locale=='ar'?'البحث عن':'Find serice...'?>" style="padding-right: <?php echo $locale=='ar'? '30px':''?>">
-                        <button style="margin-left: <?php echo $locale=='ar'? '8px':''?>">{{$locale=="ar"?'بحث':'Search'}}</button>
-                    </div>
-               </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- form./ -->
-
-
-<!-- main section 1 -->
-<section class="main-sec-1">
-   <div class="container">
-    <div class="row">
-        <div class="col-12 col-lg-5">
-            <div class="sec-img">
-                <img src="{{url($service->image??'')}}" alt="">
-            </div>
-        </div>
-        <div class="col-12 col-lg-7">
-            <div class="sec-main-text-content">
-                <h5 style="text-align: <?php echo $locale=='ar'?'right':'' ?>">{{$locale=="ar"?$service->title_ar:$service->title}}</h5>
-                <p>{{$locale=="ar"?$service->description_ar:$service->description}}</p>
-                <p class="category"><b>Category</b>: {{$locale == "ar"? $category->name_ar??'':$category->name??''}}</p>
-                <div class="buttons">
-                    <button>Visit Website</button>
-                    <button>Request to Services</button>
-                </div>
-            </div>
-        </div>
-    </div>
-   </div>
-</section>
-<!-- section1 -->
-
-<!-- main2 -->
-<section class="main2">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="tabs">
-                    <span class="active">Vendor Info</span>
-                    <span>Store Policy</span>
-                    <span>Inquiries</span>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-2">
-            <div class="col">
-                <div class="content">
-                    <p><b>Vendor Name</b>: Mohammed Hossain</p>
-                    <p><b>Store Name</b>: Al-sari Group</p>
-                    <p><b>Address</b>: Riadah, Saudi Arab</p>
-                    <p><b>Reviews</b>: 35</p>
-                    <p><b>Categories</b>: Property Manegement</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- main2./ -->
-
- <!-- serivcemain -->
-<section class="service-main mt-4">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-4">
-                <div class="service-menus">
-                    @forelse ($categories as $item)
-                    <a href="{{url('service-details')}}/{{$id}}/{{$item->id}}">
-
-                        <p class="<?php echo $item->id==$cat_id? 'active':'' ?>">
-                            {{$locale=="ar"?$item->name_ar:$item->name}}
-                            @php
-                             echo  $item->id==$cat_id?   '<i class="fas fa-angle-right"></i>':''
-                            @endphp
-                        </p>
-                    </a>
-                    @empty
-                      {{ "no data" }}
-                    @endforelse
-                </div>
-
-                <div class="div-img">
-                <img src="{{asset('assets/web/{{asset('/assets/web/img')}}/Rectangle 60.png')}}" alt="img">
-                <img src="{{asset('assets/web/{{asset('/assets/web/img')}}/image 5.png')}}" alt="img">
-            </div>
-            </div>
-            <div class="col-12 col-lg-8 my-md-4">
-                <div class="row">
-                    @forelse ($services as $item)
-
-                    <div class="col-12 col-lg-4 mb-3 col-md-6 mb-4">
-                        <a href="{{url('service-details')}}/{{$item->id}}" style="text-decoration: none;">
-                            <div class="service-card ">
-                                <img src="{{url($item->image)}}" class="w-100" alt="img">
-                                <h3 style="text-align: <?php echo $locale=='ar'?'right':'' ?>">{{$locale=='ar'?$item->title_ar:$item->title}}</h3>
-                                <p style="color: #333333">{{$locale=='ar'?$item->description_ar:$item->description}}</p>
-                            </div>
-                        </a>
-                    </div>
-                    @empty
-                      {{'no service found in this category'}}
-                    @endforelse
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
-<!-- service main -->
-@endsection --}}
 
 @extends('web.layout.app')
 
@@ -139,10 +11,13 @@
                 <div class="hero-text">
                     <h3 class="">Here is the Right Place to
                         Find Perfect Services</h3>
-                    <div class="input-search">
-                        <input type="text" placeholder="Find Services">
-                         <button>Search</button>
-                    </div>
+                        <form action="{{url("servicepage")}}" method="post">
+                            @csrf
+                            <div class="input-search">
+                                <input type="text" name="search" placeholder="Find Services">
+                                <button type="submit">Search</button>
+                            </div>
+                        </form>
                     <p class="popular__tags">Popular search: App Development;  Website Development; Graphics Design; Icon</p>
                 </div>
             </div>
@@ -350,31 +225,5 @@
  </script>
 @endpush
 
-{{-- CREATE TABLE employess (
-    id int NOT NULL,
-    user_id int NOT NULL,
-    name varchar(200) NOT NULL,
-    working_days int(200),
-    salary varchar(220) NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE ;
-);
 
-CREATE TABLE projects (
-    id int NOT NULL,
-    emop_id int NOT NULL,
-    project_name varchar(200) NOT NULL,
-    details varchar(220) NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (emop_id) REFERENCES employess(id) ON UPDATE CASCADE ON DELETE CASCADE ;
-);
-
-CREATE TABLE salary (
-    id int NOT NULL,
-    emop_id int NOT NULL,
-    amount varchar(200) NOT NULL,
-    paid varchar(220) NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (emop_id) REFERENCES employess(id) ON UPDATE CASCADE ON DELETE CASCADE ;
-); --}}
 

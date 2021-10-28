@@ -29,6 +29,9 @@ class CartController extends Controller
         $cat_name = Category::find( $service->cat_id);
         $cart = session()->get('cart');
 
+        // dd($cart);
+        // return;
+
 
         // if cart is empty then this the first product
         if(!$cart) {
@@ -41,16 +44,18 @@ class CartController extends Controller
                     ]
             ];
             session()->put('cart', $cart);
+            // dd($cart);
+            // return;
             return view('web.cart_page',['cat_name'=>$cat_name->name]);
         }
 
         // if cart not empty then check if this product exist then increment quantity
         if(isset($cart[$id])) {
-            $cart[$id]['quantity']++;
-            session()->put('cart', $cart);
+            // $cart[$id]['quantity']++;
+            // session()->put('cart', $cart);
             return view('web.cart_page',['cat_name'=>$cat_name->name]);
         }
-        
+
         // if item not exist in cart then add to cart with quantity = 1
         $cart[$id] = [
             "name" => $service->title,
@@ -63,20 +68,38 @@ class CartController extends Controller
     }
 
     function increaseQty($rowId){
-        // echo 'hello';
-         Cart::get($rowId)->qty+1;
+
+        if($rowId){
+           $cart = session()->get('cart');
+           $cart[$rowId]['quantity']++;
+
+           session()->put('cart',$cart);
+           return response()->json(['cart'=>$cart],200);
+        }
 
         return back();
     }
     function decreaseQty($rowId){
-        // echo 'hello';
-         Cart::get($rowId)->qty-1;
 
+
+        if($rowId){
+            $cart = session()->get('cart');
+
+            if($cart[$rowId]['quantity']>=0){
+                $cart[$rowId]['quantity']--;
+                session()->put('cart',$cart);
+                return response()->json(['cart'=>$cart],200);
+            }
+
+            session()->put('cart',$cart);
+            return response()->json(['cart'=>$cart],200);
+         }
         return back();
     }
 
-    function removeCart(){
-        Cart::destroy();
-        return "ok";
+    function removeCart(Request $request){
+        $request->session()->flush();
+
+        return 'ok';
     }
 }

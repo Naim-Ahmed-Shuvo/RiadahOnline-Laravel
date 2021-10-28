@@ -23,6 +23,7 @@ $locale = app()->getLocale();
 
 <body>
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @include('web.inc.header')
     <!-- headermain -->
 @include('web.inc.header-main')
@@ -38,7 +39,19 @@ $locale = app()->getLocale();
 
     @include('web.inc.scripts')
 
+    <script>
+        $(document).ready(function(){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
 
+            setTimeout(function(){
+                $(".alert-success").fadeOut('slow');
+            },4000)
+        })
+    </script>
 </body>
 
 </html>

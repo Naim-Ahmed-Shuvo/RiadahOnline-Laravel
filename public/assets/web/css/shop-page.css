@@ -41,10 +41,13 @@
     border: 1px solid#CCCCCC;
     border-radius: 7px;
 }
-.shoppage__main .inputs a{
-    text-decoration: none !important;
+.shoppage__main .inputs button{
+
     padding: 9px 20px;
     background: #6B438A;
     color: #FAFAFA !important;
+    border: none;
+    outline: none;
+    
 }
 /* shoppage__main./ */

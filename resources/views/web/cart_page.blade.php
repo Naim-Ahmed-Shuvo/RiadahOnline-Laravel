@@ -20,7 +20,7 @@
             </div>
         </div>
         @php
-            echo Cart::content();
+           $total=0;
         @endphp
         <div class="row">
             <div class="col-12">
@@ -35,45 +35,48 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @if (session('cart'))
 
-                            @forelse (Cart::content() as $cart)
+                        @forelse (session('cart') as $idx=> $cart)
+                          <?php $total += $cart['price'] * $cart['quantity'] ?>
 
-                            <tr>
-                              <td scope="row">
-                                  <div class="service__name__card d-flex">
-                                      <div class="card__img">
-                                          <img src="{{asset('/assets/web/img')}}/Rectangle 27.png" alt="img" height="131">
-                                      </div>
-                                     <div class="card__infotext">
-                                        <h4>{{$cart->name}}</h4>
-                                         <p class="card__infotext__category">Category: <span>{{$cat_name}}</span></p>
-                                         <div class="service__type">
-                                             <p>Service type:</p>
-                                             <div class="buttons">
-                                                 <a href="#">Project</a>
-                                                 <a href="#" class="active">Hourly</a>
-                                             </div>
-                                         </div>
-                                     </div>
-                                  </div>
-                              </td>
-                              <td>
-                                  <div class="cart__inc_dec d-flex">
-                                      <p>{{$cart->qty}}</p>
-                                      <a href="{{url("increase_qty/".$cart->rowId)}}"><i class="fas fa-plus"></i></a>
-                                      <a href="{{url("decrease_qty/".$cart->rowId)}}"><i class="fas fa-minus"></i></a>
-                                  </div>
-                              </td>
-                              <td>
+                        <tr>
+                            <td scope="row">
+                                <div class="service__name__card d-flex">
+                                    <div class="card__img">
+                                        <img src="{{url($cart['photo'])}}" alt="img" height="131">
+                                    </div>
+                                    <div class="card__infotext">
+                                        <h4>{{$cart['name']}}</h4>
+                                        <p class="card__infotext__category">Category: <span>{{$cat_name}}</span></p>
+                                        <div class="service__type">
+                                            <p>Service type:</p>
+                                            <div class="buttons">
+                                                <a href="#">Project</a>
+                                                <a href="#" class="active">Hourly</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cart__inc_dec d-flex">
+                                    <p>{{$cart['quantity']}}</p>
+                                    <a  class="inc_qty" data-id="{{$idx}}" style="cursor: pointer"><i class="fas fa-plus"></i></a>
+                                    <a  class="dec_qty" data-id="{{$idx}}" style="cursor: pointer"><i class="fas fa-minus"></i></a>
+                                </div>
+                            </td>
+                            <td>
                                 <p style="margin-top: 30px !important; color: #555555; font-weight: 600;font-family: 'Poppins',sans-serif; text-align: center;">25 days</p>
-                              </td>
-                              <td>
-                                  <p style="margin-top: 30px !important; color: #555555; font-weight: 600;font-family: 'Poppins',sans-serif; text-align: center;">${{Cart::subtotal()}}</p>
-                              </td>
-                            </tr>
-                            @empty
+                            </td>
+                            <td>
+                                <p style="margin-top: 30px !important; color: #555555; font-weight: 600;font-family: 'Poppins',sans-serif; text-align: center;">{{$cart['price']}}</p>
+                            </td>
+                        </tr>
+                        @empty
 
-                            @endforelse
+                        @endforelse
+                        @endif
                           </tbody>
                     </table>
                 </div>
@@ -84,16 +87,51 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-end">
                 <div class="calucalte__total">
-                    <p>Sub-Total  <span class="price1"> = ${{Cart::subtotal()}}</span></p>
-                    <p>VAT <span class="price2"> =$ {{Cart::tax()}}</span></p>
+                    <p>Sub-Total  <span class="price1"> = ${{$total}}</span></p>
+                    <p>VAT <span class="price2"> = $5</span></p>
                     <hr class="total__devider__line">
-                    <p class="mb-5">Total <span class="price3"> =$ {{Cart::total()}}</span></p>
+                    <p class="mb-5">Total <span class="price3"> =${{$total+5}}</span></p>
 
                     <a href="#">Back to Home</a>
-                    <a href="#">Continue >></a>
+                    <a href="{{route('shop.page')}}">Continue >></a>
                 </div>
             </div>
         </div>
     </div>
 </section>
  @endsection
+
+ @push('js')
+<script>
+    $(document).ready(function(){
+
+        //
+        $(".inc_qty").click(function(){
+            // alert($(this).data('id'));
+            let id = $(this).data('id');
+            $.ajax({
+                url:`{{url('increase_qty/${id}')}}`,
+                method:'post',
+                success:function(res){
+                    location.reload()
+                }
+
+            })
+        })
+
+        //
+        $(".dec_qty").click(function(){
+            // alert($(this).data('id'));
+            let id = $(this).data('id');
+            $.ajax({
+                url:`{{url('decrease_qty/${id}')}}`,
+                method:'post',
+                success:function(res){
+                    location.reload()
+                }
+
+            })
+        })
+    })
+</script>
+ @endpush

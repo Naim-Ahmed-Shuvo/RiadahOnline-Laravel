@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\ServiceController;
 use Illuminate\Support\Facades\Route;
@@ -32,10 +33,14 @@ Route::match(['get','post'],'get_tabdata/{tab}/{service_id}', [ServiceController
 Route::match(['get','post'],'cart', [CartController::class,'index']);
 Route::match(['get','post'],'shop-page', [CartController::class,'viewShopPage']);
 Route::match(['get','post'],'place-order/{id}', [CartController::class,'addToCart']);
-Route::match(['get','post'],'remove-cart', [CartController::class,'removeCart']);
+Route::match(['get','post'],'remove-cart-all', [CartController::class,'removeCart']);
 Route::match(['get','post'],'increase_qty/{rowId}', [CartController::class,'increaseQty']);
 Route::match(['get','post'],'decrease_qty/{rowId}', [CartController::class,'decreaseQty']);
 
+//checkout
+Route::get('shop-page', [OrdersController::class,'index'])->name('shop.page');
+Route::post('store-order', [OrdersController::class,'storeOrder'])->name('store.order');
+Route::get('order-success', [OrdersController::class,'orderSuccess'])->name('order.success');
 
 // contact from
 Route::post('submit-form', [HomeController::class,'submit'])->name('submit.form');

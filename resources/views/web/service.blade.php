@@ -85,7 +85,7 @@
                             @csrf
                         <div class="input-search">
                            <input type="text" name="search" placeholder="Find Services">
-                           <button>Search</button>
+                           <button type="submit">Search</button>
                         </div>
                     </form>
                     <p class="popular__tags">Popular search: App Development;  Website Development; Graphics Design; Icon</p>
@@ -219,31 +219,7 @@
                     @empty
                         {{ "no category" }}
                     @endforelse
-                    {{-- <a href="#">
-                        <p>Economic Consulting</p>
 
-                    </a>
-                    <a href="#">
-                        <p>Economic Consulting</p>
-
-                    </a>
-                    <a href="#">
-                        <p>Economic Consulting</p>
-
-                    </a>
-                    <a href="#">
-                        <p>Economic Consulting</p>
-
-                    </a>
-                    <a href="#">
-                        <p>Economic Consulting</p>
-                    </a>
-                    <a href="#">
-                        <p>Economic Consulting</p>
-                    </a>
-                    <a href="#">
-                        <p>Economic Consulting</p>
-                    </a> --}}
                 </div>
             </div>
             <div class="col-12 col-sm-1 col-md-12 col-lg-9">
