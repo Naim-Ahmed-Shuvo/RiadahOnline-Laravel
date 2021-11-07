@@ -17,6 +17,7 @@
                     <th scope="col">Qty</th>
                     <th scope="col">Total</th>
                     <th scope="col">Ordered At</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -27,14 +28,16 @@
                     <tr>
                       <th scope="row">{{$idx+1}}</th>
                       <td>{{$order->service_name}}</td>
-                      <td>{{$order->checkout->name}}</td>
+                      <td>{{$order->checkout->name??''}}</td>
                       <td>{{$order->service_qty}}</td>
                       <td>{{$order->total}}</td>
                       <td>{{$order->created_at}}</td>
+                      <td>{{$order->status}}</td>
                       <td>
-                          <a href="#" class="btn btn-info btn-sm">confirm</a>
-                          <a href="#" class="btn btn-info btn-sm">pending</a>
-                          <a href="{{route('delete.order',['id'=>$order->id])}}" class="btn btn-info btn-sm">delete</a>
+                          @if ($order->status=='pending')
+                           <a href="{{route('confirm.order',['id'=>$order->id])}}" class="btn btn-info btn-sm">confirm</a>
+                          @endif
+                          <a href="{{route('delete.order',['order'=>$order->id])}}" class="btn btn-info btn-sm">delete</a>
                       </td>
                     </tr>
                     @empty

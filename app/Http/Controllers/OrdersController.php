@@ -31,9 +31,9 @@ class OrdersController extends Controller
         $sub_total = 0;
 
         foreach($carts as $idx=>$cart){
-            $sub_total += $cart['price'] * $cart['quantity'];
+            $sub_total += intval($cart['price']) * $cart['quantity'];
             $order = Orders::insert([
-                'chec_id'=>$checkout->id,
+                'checkout_id'=>$checkout->id,
                 'service_id'=>$idx,
                 'service_name'=>$cart['name'],
                 'service_qty'=>$cart['quantity'],

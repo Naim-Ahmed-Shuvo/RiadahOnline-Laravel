@@ -43,4 +43,6 @@ Route::group(['middleware'=>'auth'],function () {
 
     //orders
     Route::match(['get', 'post'], 'orders',[OrderController::class,'getAllOrders']);
+    Route::match(['get', 'post'], 'remove/order/{order}',[OrderController::class,'removeOrder'])->name('delete.order');
+    Route::match(['get', 'post'], 'confirm/order/{id}',[OrderController::class,'confirmOrder'])->name('confirm.order');
 });

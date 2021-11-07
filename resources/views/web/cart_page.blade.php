@@ -36,9 +36,10 @@
                         </thead>
                         <tbody>
                         @if (session('cart'))
+                        {{-- @dd(session('cart')) --}}
 
                         @forelse (session('cart') as $idx=> $cart)
-                          <?php $total += $cart['price'] * $cart['quantity'] ?>
+                          <?php $total += intval($cart['price']) * $cart['quantity'] ?>
 
                         <tr>
                             <td scope="row">

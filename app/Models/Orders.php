@@ -10,16 +10,17 @@ class Orders extends Model
     use HasFactory;
 
     protected $fillable = [
-        // 'chec_id',
-        // 'service_id',
-        // 'service_name',
-        // 'service_qty',
-        // 'subtotal',
-        // 'vat',
-        // 'total',
+        'checkout_id',
+        'service_id',
+        'service_name',
+        'service_qty',
+        'subtotal',
+        'vat',
+        'total',
+        'status',
     ];
 
     function checkout(){
-        // return $this->hasOne(Checkout::class,'id','chec_id');
+        return $this->hasOne(Checkout::class,'id','checkout_id');
     }
 }
