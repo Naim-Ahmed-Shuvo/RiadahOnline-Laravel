@@ -43,7 +43,7 @@ class OrdersController extends Controller
                 'created_at' => Carbon::now()
             ]);
         }
-
+        session()->flush();
         return redirect()->route('order.success');
     }
 

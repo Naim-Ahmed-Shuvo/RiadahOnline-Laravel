@@ -69,9 +69,9 @@
     </x-auth-card>
 </x-guest-layout> --}}
 
-@extends('layouts/app')
+@extends('web.layout.app')
 
-@section('content')
+@section('main')
 
 <div class="account-pages mt-5 mb-5">
     <div class="container">
@@ -138,16 +138,16 @@
                                 <div class="input-group input-group-merge">
                                     <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password">
                                     <div class="input-group-text" data-password="false">
-                                        <span class="password-eye"></span>
+                                        <span class="password-eye show-pass"><i class="fas fa-eye"></i></span>
                                     </div>
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label"> Confirm Password</label>
+                                <label for="password_confirmation" class="form-label"> Confirm Password</label>
                                 <div class="input-group input-group-merge">
-                                    <input type="password" id="password" name="password" class="form-control" name="password_confirmation" placeholder="Enter your password">
+                                    <input type="password" id="password_reset" name="password" class="form-control" name="password_confirmation" placeholder="Enter your password">
                                     <div class="input-group-text" data-password="false">
-                                        <span class="password-eye"></span>
+                                        <span class="password-eye show-pass"><i class="fas fa-eye"></i></span>
                                     </div>
                                 </div>
                             </div>
@@ -200,5 +200,26 @@
 </div>
 <!-- end page -->
 @endsection
+
+@push('js')
+<script>
+    $(document).ready(function(){
+        console.log("register")
+        let inputPass = $('#password');
+        inputPass.change(function(){
+            console.log("changing")
+        })
+
+        let inputPassReset = $('#password_reset');
+
+             $('.show-pass').click(function(){
+                 console.log("hello")
+                 $('#password').attr('type')=='password'? $('#password').attr('type','text'): $('#password').attr('type','password');
+                 $('#password_reset').attr('type')=='password'? $('#password_reset').attr('type','text'): $('#password_reset').attr('type','password');
+             });
+
+    })
+</script>
+@endpush
 
 

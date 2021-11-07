@@ -83,8 +83,8 @@
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <div class="partner-card ">
-                    <div class="partner-card-img" style="top: -17%;left:-6%;">
-                        <img src="{{asset('assets/web')}}/img/tec-incubator.png" alt="img">
+                    <div class="partner-card-img" >
+                        <img src="{{asset('assets/web')}}/img/tec-incubator.png" alt="img" class="w-100">
                     </div>
                     <div class="partner-card-text">
                         <h4>@lang('partnerspage.Technical Incubator') </h4>
@@ -94,8 +94,8 @@
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <div class="partner-card ">
-                    <div class="partner-card-img" style="top: 11%;left:18%;">
-                        <img src="{{asset('assets/web')}}/img/data-incubator.png" alt="img">
+                    <div class="partner-card-img" >
+                        <img src="{{asset('assets/web')}}/img/data-incubator.png" class="w-100" alt="img">
                     </div>
                     <div class="partner-card-text">
                         <h4> @lang('partnerspage.Data Incubator') </h4>

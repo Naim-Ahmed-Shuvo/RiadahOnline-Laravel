@@ -55,15 +55,15 @@
     </x-auth-card>
 </x-guest-layout> --}}
 
-@extends('layouts.app')
+@extends('web.layout.app')
 
-@section('content')
+@section('main')
 
 
         <div class="account-pages mt-5 mb-5">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-8 col-lg-6 col-xl-4">
+                    <div class="col-md-8 col-lg-8 col-xl-8">
                         <div class="card shadow-none">
 
                             <div class="card-body p-3">
@@ -95,10 +95,10 @@
                                     <div class="mb-3">
                                         <label for="password" class="form-label">Password</label>
                                         <div class="input-group input-group-merge">
-                                            <input type="password" id="password" class="form-control"  name="password"
+                                            <input type="password" id="password" class="form-control password"  name="password"
                                             required autocomplete="current-password" placeholder="Enter your password">
-                                            <div class="input-group-text" data-password="false">
-                                                <span class="password-eye"></span>
+                                            <div class="input-group-text show-pass" data-password="false">
+                                                <span class="password-eye" style="cursor: pointer"><i class="fas fa-eye"></i></span>
                                             </div>
                                         </div>
                                     </div>
@@ -154,4 +154,18 @@
         </div>
         <!-- end page -->
 @endsection
+
+@push('js')
+<script>
+    $(document).ready(function(){
+        console.log("login")
+        $('.password').change(function(e){
+             console.log(e.target.value)
+             $('.show-pass').removeClass('d-none').click(function(){
+                 $('.password').attr('type')=='password'? $('.password').attr('type','text'): $('.password').attr('type','password');
+             });
+        })
+    })
+</script>
+@endpush
 

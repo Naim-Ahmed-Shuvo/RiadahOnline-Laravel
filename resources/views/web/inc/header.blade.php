@@ -41,9 +41,14 @@
                         </div>
                         <div class="item item-2" id="click">
 
-                           <a href="#">
-                            <p><i class="fas fa-shopping-cart"></i></p>
-                            <span>@lang('homepage.header-top-cart')</span>
+                           <a href="{{url('cart')}}">
+                            <p style="position: relative">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span style="position: absolute;
+                                top: -12px;
+                                left: 21px;
+                                color: #fafafa;">{{session('cart') ? count(session('cart')):' '}}</span></p>
+                            <span>@lang('homepage.header-top-cart') </span>
                            </a>
                         </div>
                         <div class="item item-3">
@@ -51,7 +56,6 @@
                                 <p>
                                     <i class="fas fa-user"></i>
                                 </p>
-
                                 <span style="color: #ffffff">@lang('homepage.header-top-account')</span>
                             </a>
 

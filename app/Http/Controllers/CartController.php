@@ -1,12 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Category;
 use App\Models\Service;
-use Illuminate\Http\Request;
-use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
@@ -22,6 +18,7 @@ class CartController extends Controller
 
     public function addToCart($id)
     {
+        // dd(session()->all());
         $service = Service::find($id);
         if(!$service) {
             abort(404);
@@ -40,20 +37,21 @@ class CartController extends Controller
                         "name" => $service->title,
                         "quantity" => 1,
                         "price" => $service->price,
-                        "photo" => $service->image
+                        "photo" => $service->image,
+                        "cat_name"=>$cat_name,
                     ]
             ];
             session()->put('cart', $cart);
             // dd($cart);
             // return;
-            return view('web.cart_page',['cat_name'=>$cat_name->name]);
+            return back()->with('success','service added to cart');
         }
 
         // if cart not empty then check if this product exist then increment quantity
         if(isset($cart[$id])) {
             // $cart[$id]['quantity']++;
             // session()->put('cart', $cart);
-            return view('web.cart_page',['cat_name'=>$cat_name->name]);
+            return view('web.cart_page');
         }
 
         // if item not exist in cart then add to cart with quantity = 1
@@ -61,10 +59,12 @@ class CartController extends Controller
             "name" => $service->title,
             "quantity" => 1,
             "price" => $service->price,
-            "photo" => $service->image
+            "photo" => $service->image,
+            "cat_name"=>$cat_name,
         ];
         session()->put('cart', $cart);
-        return view('web.cart_page',['cat_name'=>$cat_name->name]);
+        return back()->with('success','service added to cart');
+
     }
 
     function increaseQty($rowId){
@@ -77,7 +77,7 @@ class CartController extends Controller
            return response()->json(['cart'=>$cart],200);
         }
 
-        return back();
+        return back()->with('success','qty increased');
     }
     function decreaseQty($rowId){
 
@@ -97,9 +97,8 @@ class CartController extends Controller
         return back();
     }
 
-    function removeCart(Request $request){
-        $request->session()->flush();
-
+    function removeCart(){
+        session()->flush();
         return 'ok';
     }
 }

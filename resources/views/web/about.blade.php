@@ -140,28 +140,28 @@
         <div class="row">
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4 my-sm-3 my-md-1 my-lg-0">
                 <div class="project-card">
-                    <img src="{{ asset('assets/web') }}/img/marketing logo-01 1.png" alt="img">
+                    <img src="{{ asset('assets/web') }}/img/investment-incubator.png" alt="img" class="w-100">
                     <h3>@lang('homepage.Investment-Incubator')</h3>
                     <p>@lang('homepage.Investment-Incubator-text')</p>
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4 my-sm-3 my-md-1 my-lg-0">
                 <div class="project-card">
-                    <img src="{{ asset('assets/web') }}/img/marketing logo-03 1.png" alt="img">
+                    <img src="{{ asset('assets/web') }}/img/relation-incubator.png" class="w-100" alt="img">
                     <h3>@lang('homepage.Relationship-Incubator')</h3>
                     <p>@lang('homepage.Relationship-Incubator-text')</p>
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4 my-sm-3 my-md-1 my-lg-0">
                 <div class="project-card">
-                    <img src="{{ asset('assets/web') }}/img/marketing logo-04 1.png" alt="img">
+                    <img src="{{ asset('assets/web') }}/img/media-incubator.png" alt="img" class="w-100">
                     <h3>@lang('homepage.Media-Incubator')</h3>
                     <p>@lang('homepage.Media-Incubator-text')</p>
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4 my-sm-3 my-md-1 my-lg-0">
                 <div class="project-card">
-                    <img src="{{ asset('assets/web') }}/img/job-incubator.png" alt="img">
+                    <img src="{{ asset('assets/web') }}/img/design-incubator.png" alt="img">
                     <h3>@lang('homepage.Design-Incubator')</h3>
                     <p>@lang('homepage.Design-Incubator-text')</p>
                 </div>
@@ -171,28 +171,28 @@
         <div class="row ">
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4 my-sm-3 my-md-1 my-lg-0">
                 <div class="project-card">
-                    <img src="{{ asset('assets/web') }}/img/care-incubator.png" alt="img">
+                    <img src="{{ asset('assets/web') }}/img/mosanf-transparent-logo.png" alt="img" class="w-100">
                     <h3>@lang('homepage.Mosanf')</h3>
                     <p>@lang('homepage.Mosanf-text')</p>
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4 my-sm-3 my-md-1 my-lg-0">
                 <div class="project-card">
-                    <img src="{{ asset('assets/web') }}/img/the-mobile-seller.png" alt="img">
+                    <img src="{{ asset('assets/web') }}/img/data-incubator.png" alt="img" class="w-100">
                     <h3>@lang('homepage.Data-Incubator')</h3>
                     <p>@lang('homepage.Data-Incubator-text')</p>
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4 my-sm-3 my-md-1 my-lg-0">
                 <div class="project-card">
-                    <img src="{{ asset('assets/web') }}/img/design-incubator.png" alt="img">
+                    <img src="{{ asset('assets/web') }}/img/training-incubator.png" alt="img" class="w-100">
                     <h3>@lang('homepage.Training-Incubator')</h3>
                     <p>@lang('homepage.Training-Incubator-text')</p>
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4">
                 <div class="project-card">
-                    <img src="{{ asset('assets/web') }}/img/alnaquel-incubator.png" alt="img">
+                    <img src="{{ asset('assets/web') }}/img/tec-incubator.png" alt="img" class="w-100">
                     <h3>@lang('homepage.Technical-Incubator')</h3>
                     <p>@lang('homepage.Technical-Incubator-text')</p>
                 </div>

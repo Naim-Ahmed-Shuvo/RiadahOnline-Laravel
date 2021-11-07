@@ -7,7 +7,7 @@ return [
     'header-top-drop-down-arabic'=>'Arabic',
     'header-top-drop-down-english'=>'English',
     'header-top-cart'=>'My Cart',
-    'header-top-account'=>'Account',
+    'header-top-account'=>'My Account',
     'header-link-home'=>'Home',
     'header-link-about'=>'About ',
     'header-link-services'=>'Services',

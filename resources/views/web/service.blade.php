@@ -228,11 +228,11 @@
                     @forelse ($services as $item)
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-4 cards">
-                            <a href="#">
+                            <a href="{{route('service.details',['id'=>$item->id])}}">
                                 <img src="{{url($item->image)}}" class="w-100" height="212" alt="img">
                                 <h4>{{$item->title}}</h4>
                                 <p>{{getDotStr($item->description)}}</p>
-                                <a href="{{route('service.details',['id'=>$item->id])}}" class="place__order__btn">Place Order</a>
+                                <a  href="{{url('place-order/'.$item->id)}}" class="place__order__btn">Place Order</a>
                             </a>
                         </div>
                     @empty

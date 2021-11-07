@@ -193,7 +193,7 @@ $locale = app()->getLocale();
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4 my-sm-3 my-md-1 my-lg-0">
                 <div class="project-card">
-                    <img src="{{ asset('assets/web') }}/img/marketing logo-03 1.png" alt="img">
+                    <img src="{{ asset('assets/web') }}/img/relation-incubator.png" class="w-100" alt="img">
                     <h3>@lang('homepage.Relationship-Incubator')</h3>
                     <p>@lang('homepage.Relationship-Incubator-text')</p>
                 </div>
@@ -219,16 +219,14 @@ $locale = app()->getLocale();
         <div class="row ">
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4 my-sm-3 my-md-1 my-lg-0">
                 <div class="project-card">
-                    <img src="{{ asset('assets/web') }}/img/care-incubator.png" alt="img">
+                    <img src="{{ asset('assets/web') }}/img/mosanf-transparent-logo.png" alt="img" class="w-100">
                     <h3>@lang('homepage.Mosanf')</h3>
                     <p>@lang('homepage.Mosanf-text')</p>
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-4 my-sm-3 my-md-1 my-lg-0">
                 <div class="project-card">
-                    <img src="{{ asset('assets/web') }}/img/data-incubator.png" alt="img" style="top: 11%;
-                    left: 14%;
-                    ">
+                    <img src="{{ asset('assets/web') }}/img/data-incubator.png" class="w-100" alt="img">
                     <h3>@lang('homepage.Data-Incubator')</h3>
                     <p>@lang('homepage.Data-Incubator-text')</p>
                 </div>

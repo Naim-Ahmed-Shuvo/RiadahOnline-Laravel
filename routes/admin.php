@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SliderController;
@@ -39,4 +40,7 @@ Route::group(['middleware'=>'auth'],function () {
     Route::get('edit-slider/{id}',[SliderController::class,'editSlider']);
     Route::post('updateslider',[SliderController::class,'updateSlider']);
     Route::post('deleteSlider/{id}',[SliderController::class,'deleteSlider']);
+
+    //orders
+    Route::match(['get', 'post'], 'orders',[OrderController::class,'getAllOrders']);
 });

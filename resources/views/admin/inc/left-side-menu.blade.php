@@ -41,6 +41,13 @@
                 </li>
 
                 <li>
+                    <a  href="{{url('orders')}}">
+                        <i class="fas fa-cart-plus"></i>
+                        <span> Orders </span>
+                    </a>
+                </li>
+
+                <li>
                     <a  href="{{url('profile-view')}}">
                         <i class="fe-users"></i>
                         <span> Users </span>

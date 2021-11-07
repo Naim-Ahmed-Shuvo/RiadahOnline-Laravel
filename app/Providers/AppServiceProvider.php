@@ -33,7 +33,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         // view()->share('locale', app()->getLocale());
-        $categories = Category::all();
-        view()->share('categories', $categories);
+        \Debugbar::disable();
+        // $categories = Category::all();
+        // view()->share('categories', $categories);
     }
 }

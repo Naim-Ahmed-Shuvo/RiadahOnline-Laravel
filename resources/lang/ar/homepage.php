@@ -7,7 +7,7 @@ return [
     'header-top-drop-down-arabic'=>'لعربية',
     'header-top-drop-down-english'=>'الإنجليزية',
     'header-top-cart'=>'الإنجليزية',
-    'header-top-account'=>'الإنجليزية',
+    'header-top-account'=>'حسابي',
     'header-link-home'=>'الصفحة الرئيسية',
     'header-link-about'=>'من نحن',
     'header-link-services'=>'خدماتنا',

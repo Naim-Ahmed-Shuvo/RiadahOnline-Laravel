@@ -14,15 +14,19 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->id();
-            $table->string('chec_id')->nullable();
-            $table->string('service_id')->nullable();
+            $table->increments('id');
+            $table->unsignedBigInteger('checkout_id');
+            $table->unsignedBigInteger('service_id');
             $table->string('service_name')->nullable();
             $table->string('service_qty')->nullable();
             $table->string('subtotal')->nullable();
             $table->string('vat')->nullable();
             $table->string('total')->nullable();
+            $table->enum('status',['confirmed','pending','deleted'])->default('pending');
             $table->timestamps();
+
+            // $table->foreign('checkout_id')->references('id')->on('checkouts')->onDelete('cascade');
+            // $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
         });
     }
 

@@ -99,7 +99,7 @@
             <div class="col">
                 <div class="map">
                     <h5>Google Map</h5>
-                    <img src="{{asset('public/assets/web')}}/img/Rectangle 67.png" alt="img">
+                    <img src="{{asset('/assets/web')}}/img/Rectangle 67.png" alt="img">
                 </div>
             </div>
         </div>

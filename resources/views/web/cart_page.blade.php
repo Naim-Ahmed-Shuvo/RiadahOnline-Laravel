@@ -48,7 +48,7 @@
                                     </div>
                                     <div class="card__infotext">
                                         <h4>{{$cart['name']}}</h4>
-                                        <p class="card__infotext__category">Category: <span>{{$cat_name}}</span></p>
+                                        <p class="card__infotext__category">Category: <span>{{$cat_name??''}}</span></p>
                                         <div class="service__type">
                                             <p>Service type:</p>
                                             <div class="buttons">

@@ -4,6 +4,9 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\ServiceController;
+use App\Models\Address;
+use App\Models\User;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,7 +36,7 @@ Route::match(['get','post'],'get_tabdata/{tab}/{service_id}', [ServiceController
 Route::match(['get','post'],'cart', [CartController::class,'index']);
 Route::match(['get','post'],'shop-page', [CartController::class,'viewShopPage']);
 Route::match(['get','post'],'place-order/{id}', [CartController::class,'addToCart']);
-Route::match(['get','post'],'remove-cart-all', [CartController::class,'removeCart']);
+Route::match(['get','post'],'destroy/cart', [CartController::class,'removeCart']);
 Route::match(['get','post'],'increase_qty/{rowId}', [CartController::class,'increaseQty']);
 Route::match(['get','post'],'decrease_qty/{rowId}', [CartController::class,'decreaseQty']);
 
@@ -46,6 +49,13 @@ Route::get('order-success', [OrdersController::class,'orderSuccess'])->name('ord
 Route::post('submit-form', [HomeController::class,'submit'])->name('submit.form');
 
 
+// test
+// Route::get('create-user',function(){
+
+//     $addresses = Address::all();
+//     $users = User::all();
+//     return view('test',['addresses'=>$addresses]);
+// });
+
 
 require __DIR__.'/auth.php';
-// require __DIR__.'/admin.php';
