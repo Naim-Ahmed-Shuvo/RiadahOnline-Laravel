@@ -49,7 +49,7 @@
         <div class="row">
             <div class="col">
                 <div class="div">
-                    <form action="{{url("/submit")}}" method="post">
+                    <form action="{{url("/servicepage")}}" method="post">
                         @csrf
                         <h5>@lang('homepage.Find-the-service-you-need')</h5>
                         <div>
@@ -73,25 +73,187 @@ $locale = app()->getLocale();
 <section class="testimonial">
     <div class="container container-fluid">
         <div class="row">
-            @forelse ($services as $index=>$item)
+
 
             <div class="col-sm-12 col-12 col-md-6 col-lg-3  my-5">
                 <div class="cardd">
-                    <a href="{{url("/service-details/")}}/{{$item->id}}">
-                        <img src="{{$item->image}}" class="img-fluid" alt="">
+                    <a href="#">
+                        <img src="{{asset('/assets/web')}}/img/economic-consulting.png" alt="img" class="img-fluid" >
                         <div class="card-text shadow ">
                             <div class="card-text-top">
-                                <span style="color: #333333">0{{$index+1}}</span>
+                                <span style="color: #333333;">01</span>
                                 <div class="line"></div>
                             </div>
-                            <h3 style="text-align: <?php echo ($locale=='ar') ?  'start':'';?>">{{$locale =='ar'?$item->title_ar:$item->title}}</h3>
+                            <h3 style="text-align: <?php echo ($locale=='ar') ?  'start':'';?>">@lang('homepage.Economic-Consulting')</h3>
                         </div>
                     </a>
                 </div>
             </div>
-            @empty
-              {{ 'no data' }}
-            @endforelse
+            <div class="col-sm-12 col-12 col-md-6 col-lg-3  my-5">
+                <div class="cardd">
+                    <a href="#">
+                        <img src="{{asset('/assets/web')}}/img/management-consulting.png" alt="img" class="img-fluid" >
+                        <div class="card-text shadow ">
+                            <div class="card-text-top">
+                                <span style="color: #333333;">02</span>
+                                <div class="line"></div>
+                            </div>
+                            <h3 style="text-align: <?php echo ($locale=='ar') ?  'start':'';?>">@lang('homepage.Management-Consulting')</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-12 col-md-6 col-lg-3  my-5">
+                <div class="cardd">
+                    <a href="#">
+                        <img src="{{asset('/assets/web')}}/img/marketing-and-relationship.png" alt="img" class="img-fluid" >
+                        <div class="card-text shadow ">
+                            <div class="card-text-top">
+                                <span style="color: #333333;">03</span>
+                                <div class="line"></div>
+                            </div>
+                            <h3 style="text-align: <?php echo ($locale=='ar') ?  'start':'';?>">@lang('homepage.Marketing-and-Relationships')</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-12 col-md-6 col-lg-3  my-5">
+                <div class="cardd">
+                    <a href="#">
+                        <img src="{{asset('/assets/web')}}/img/technology-and-information.png" alt="img" class="img-fluid" >
+                        <div class="card-text shadow ">
+                            <div class="card-text-top">
+                                <span style="color: #333333;">04</span>
+                                <div class="line"></div>
+                            </div>
+                            <h3 style="text-align: <?php echo ($locale=='ar') ?  'start':'';?>">@lang('homepage.Technology-and-Information')</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-12 col-md-6 col-lg-3  my-5">
+                <div class="cardd">
+                    <a href="#">
+                        <img src="{{asset('/assets/web')}}/img/investment-and-financing.png" alt="img" class="img-fluid" >
+                        <div class="card-text shadow ">
+                            <div class="card-text-top">
+                                <span style="color: #333333;">05</span>
+                                <div class="line"></div>
+                            </div>
+                            <h3 style="text-align: <?php echo ($locale=='ar') ?  'start':'';?>">@lang('homepage.Investment-and-Financing')</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-12 col-md-6 col-lg-3  my-5">
+                <div class="cardd">
+                    <a href="#">
+                        <img src="{{asset('/assets/web')}}/img/Discover-the-leaders.png" alt="img" class="img-fluid" >
+                        <div class="card-text shadow ">
+                            <div class="card-text-top">
+                                <span style="color: #333333;">06</span>
+                                <div class="line"></div>
+                            </div>
+                            <h3 style="text-align: <?php echo ($locale=='ar') ?  'start':'';?>">@lang('homepage.Discovering-Leadership')</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-12 col-md-6 col-lg-3  my-5">
+                <div class="cardd">
+                    <a href="#">
+                        <img src="{{asset('/assets/web')}}/img/Property-Management.png" alt="img" class="img-fluid" >
+                        <div class="card-text shadow ">
+                            <div class="card-text-top">
+                                <span style="color: #333333;">07</span>
+                                <div class="line"></div>
+                            </div>
+                            <h3 style="text-align: <?php echo ($locale=='ar') ?  'start':'';?>">@lang('homepage.Property-Management')</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-12 col-md-6 col-lg-3  my-5">
+                <div class="cardd">
+                    <a href="#">
+                        <img src="{{asset('/assets/web')}}/img/exhibitions-and-conference.png" alt="img" class="img-fluid" >
+                        <div class="card-text shadow ">
+                            <div class="card-text-top">
+                                <span style="color: #333333;">08</span>
+                                <div class="line"></div>
+                            </div>
+                            <h3 style="text-align: <?php echo ($locale=='ar') ?  'start':'';?>">@lang('homepage.Exhibitions-and-Conferences')</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-12 col-md-6 col-lg-3  my-5">
+                <div class="cardd">
+                    <a href="#">
+                        <img src="{{asset('/assets/web')}}/img/technology-and-information2.png" alt="img" class="img-fluid" >
+                        <div class="card-text shadow ">
+                            <div class="card-text-top">
+                                <span style="color: #333333;">09</span>
+                                <div class="line"></div>
+                            </div>
+                            <h3 style="text-align: <?php echo ($locale=='ar') ?  'start':'';?>">@lang('homepage.Recruitment-and-Human-Resources')</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-12 col-md-6 col-lg-3  my-5">
+                <div class="cardd">
+                    <a href="#">
+                        <img src="{{asset('/assets/web')}}/img/design-and-production.png" alt="img" class="img-fluid" >
+                        <div class="card-text shadow ">
+                            <div class="card-text-top">
+                                <span style="color: #333333;">10</span>
+                                <div class="line"></div>
+                            </div>
+                            <h3 style="text-align: <?php echo ($locale=='ar') ?  'start':'';?>">@lang('homepage.Design-and-Production')</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-12 col-md-6 col-lg-3  my-5">
+                <div class="cardd">
+                    <a href="#">
+                        <img src="{{asset('/assets/web')}}/img/commercial-service.png" alt="img" class="img-fluid" >
+                        <div class="card-text shadow ">
+                            <div class="card-text-top">
+                                <span style="color: #333333;">11</span>
+                                <div class="line"></div>
+                            </div>
+                            <h3 style="text-align: <?php echo ($locale=='ar') ?  'start':'';?>">@lang('homepage.Commercial-Services')</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-12 col-md-6 col-lg-3  my-5">
+                <div class="cardd">
+                    <a href="#">
+                        <img src="{{asset('/assets/web')}}/img/public-service.png" alt="img" class="img-fluid" >
+                        <div class="card-text shadow ">
+                            <div class="card-text-top">
+                                <span style="color: #333333;">12</span>
+                                <div class="line"></div>
+                            </div>
+                            <h3 style="text-align: <?php echo ($locale=='ar') ?  'start':'';?>">@lang('homepage.General-Services')</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
 
         </div>
     </div>

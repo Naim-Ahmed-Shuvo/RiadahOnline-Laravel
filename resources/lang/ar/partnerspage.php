@@ -1,20 +1,20 @@
 <?php
 
 return [
-    'Riadah Incubators'=>'حاضنات رياضه',
+    'Riadah Incubators'=>'حاضنات الريادة',
     'Riadah-Incubators-text'=>'حاضنات رياضه - استوديو الشركات الناشئة ومصنع الشركات - الشريك التجاري لتجسيد أفكارك وإدارة مشاريعك',
-    'Economic Incubator'=>'حاضنة اقتصادية',
+    'Economic Incubator'=>'حاضنة الاقتصاد',
     'Economic-Incubator-text'=>'الحاضنة الاقتصادية للاستشارات الاقتصادية والادارية ودراسات الجدوى',
-    'Discovering Leadership'=>'اكتشاف القيادة',
+    'Discovering Leadership'=>'اكتشاف القيادات',
     'Discovering-Leadership-text'=>'اكتشاف القيادة لتطوير وتأهيل الكوادر وإعداد الهياكل التنظيمية والإدارية',
-    'Event Incubators'=>'حاضنات الحدث',
+    'Event Incubators'=>'حاضنة الفعاليات',
     'Event-Incubators-text'=>'حاضنة الفعاليات لتسويق الفعاليات واستقطاب المعارض الدولية
     - حاضنة وظائف للبحث والتوظيف والمقابلات',
-    'Job Incubators'=>'حاضنات الوظائف',
+    'Job Incubators'=>' حاضنة التوظيف',
     'Job-Incubators-text'=>'حاضنة وظائف للبحث والتوظيف والمقابلات',
-    'Marketing Incubators'=>'حاضنات التسويق',
+    'Marketing Incubators'=>'حاضنة التسويق ',
     'Marketing-Incubators-text'=>'حاضنة التسويق للاستشارات التسويقية وإدارة الحملات الإعلانية وتطوير الخطط التسويقية',
-    'Technical Incubator'=>'حاضنة فنية',
+    'Technical Incubator'=>' حاضنة التكنولوجيا',
     'Technical-Incubator-text'=>'حاضنة تقنية للحوسبة السحابية والذكاء الاصطناعي وتصميم نظام تخطيط موارد المؤسسات وبرامج إدارة الفنادق والمستشفيات',
     'Data Incubator'=>'حاضنة البيانات',
     'Data-Incubator-text'=>'حاضنة البيانات لإنشاء وإدارة مراصد دعم الأعمال وسوق البيانات',
