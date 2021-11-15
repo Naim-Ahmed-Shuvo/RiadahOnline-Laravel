@@ -73,22 +73,36 @@ class ServiceController extends Controller
                  'reviews'=> '5',
                  'created_at'=>Carbon::now()
              ]);
-            //  title
-            //  title_ar
-            //  cat_id
-            //  description
-            //  description_ar
-            //  image
-            //  tags
-            //  price
-            //  information
-            //  vendor
-            //  reviews
 
              return back()->with('success','You have successfully added serivce');
          }
 
 
+         //inserting vendor data
+         $vendor_id= Vendor::insertGetId([
+            'name'=>$request->v_name,
+            'email'=>$request->v_email,
+            'phone'=>$request->v_phone,
+            'company_name'=>$request->v_c_name,
+            'created_at'=>Carbon::now()
+          ]);
+
+          //inserting service data
+         $service = Service::create([
+             'title'=>$request->title,
+             'title_ar'=>$request->title_ar,
+             'cat_id'=>$request->cat_id??'',
+             'description'=>$request->description,
+             'description_ar'=>$request->description_ar,
+            //  'image'=> 'images/'.$img_name,
+             'tags'=> $request->tags,
+             'price'=> $request->price,
+             'information'=>$request->information,
+             'information_ar'=>$request->information_ar,
+             'vendor'=> $vendor_id,
+             'reviews'=> '5',
+             'created_at'=>Carbon::now()
+         ]);
     }
 
     /**

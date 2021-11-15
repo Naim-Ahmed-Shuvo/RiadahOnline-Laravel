@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: #04174b;  /* fallback for old browsers */
+
+            width: 100%;
+            height: 100vh;
+        }
+        nav{
+            padding: 50px 0px;
+        }
+        nav h4{
+            color: aliceblue;
+            text-align: center;
+        }
+        .container{
+            width: 1040px;
+            margin: 40px auto;
+        }
+        .search{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .wrapper{
+            background-color: aliceblue;
+            height: 37px;
+            width: 41px;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            transition: all .5s ease-in-out;
+        }
+        .wrapper:hover{
+            width: 330px;
+        }
+        .wrapper:hover>input{
+            display: block;
+        }
+        .wrapper input{
+            background: transparent;
+            outline: none;
+            border: none;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            transition: all .5s ease-in-out;
+            display: none;
+        }
+        .wrapper button{
+            background: #f04c6f;  /* fallback for old browsers */
+            outline: none;
+            border: none;
+            height: 100%;
+            width: 43px;
+            color: #333333;
+            cursor: pointer;
+            transition: all .5s ease-in-out;
+            color: aliceblue;
+        }
+         button:focus ~ input{
+           width: 10px;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <h4>Search Boxs</h4>
+</nav>
+<div class="container">
+    <div class="search-1 search">
+        <div class="wrapper">
+            <input type="text" placeholder="Search....">
+            <button>
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

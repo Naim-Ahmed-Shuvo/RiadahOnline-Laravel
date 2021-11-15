@@ -67,8 +67,8 @@
 }
 
 .service__redesign__slider .slick-prev::before {
-    content: '<-';
-    left: 10px;
+    content: '←';
+    left: 14px;
     position: absolute;
     line-height: 0;
     color: #333333;
@@ -81,7 +81,7 @@
    border-radius: 50%
 }
 .service__redesign__slider .slick-next::before{
-    content: '->';
+    content: '→';
     left: 10px;
     position: absolute;
     line-height: 0;

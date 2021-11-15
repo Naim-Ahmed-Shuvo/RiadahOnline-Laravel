@@ -25,3 +25,4 @@
 @if ($locale=='ar')
 <link rel="stylesheet" href="{{ asset('assets/web') }}/css/arabic.css">
 @endif
+

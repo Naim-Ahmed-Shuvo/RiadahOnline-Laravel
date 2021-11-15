@@ -22,20 +22,20 @@
                     <div class="col-4">
                         <div class="mb-3">
                             <label for="title" class="form-label">Title</label>
-                            <input type="text" name="title"  class="form-control"  autocomplete="off">
+                            <input type="text" name="title"  class="form-control"  autocomplete="off" required>
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="mb-3">
                             <label for="title_ar"  class="form-label">Title Arabic</label>
-                            <input type="text" name="title_ar"  class="form-control"  autocomplete="off">
+                            <input type="text" name="title_ar"  class="form-control"  autocomplete="off" required>
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="mb-3">
                             <label for="cat_id" class="form-label">Category</label>
-                            <select class="form-select" id="example-select" name="cat_id">
-                                <option selected> ---Select---- </option>
+                            <select class="form-select" id="example-select" name="cat_id" required>
+                                <option value="0"> ---Select---- </option>
                                 @forelse ($categories as $item => $id)
                                   <option value="{{$id}}">{{$item}} </option>
                                 @empty
@@ -78,12 +78,12 @@
                     </div>
                     <div class="col-6"> <div class="mb-3">
                         <label for="description" class="form-label">Deascription</label>
-                        <textarea class="form-control" name="description" id="example-textarea" rows="5"></textarea>
+                        <textarea class="form-control" name="description" id="example-textarea" rows="5" required></textarea>
                     </div></div>
                     <div class="col-6">
                         <div class="mb-3">
                             <label for="description_ar" class="form-label">Deascription Arabic</label>
-                            <textarea class="form-control" name="description_ar" id="example-textarea" rows="5"></textarea>
+                            <textarea class="form-control" name="description_ar" id="example-textarea" rows="5" required></textarea>
                         </div>
                     </div>
                     <div class="col-6"> <div class="mb-3">
@@ -99,13 +99,13 @@
                     <div class="col-6">
                         <div class="mb-3">
                             <label for="img" class="form-label">Image</label>
-                            <input type="file" name="img" id="example-fileinput" class="form-control">
+                            <input type="file" name="img" id="example-fileinput" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="mb-3">
                             <label for="tags" class="form-label">Tags</label>
-                            <input type="text" name="tags" required id="tokenfield"   class="form-control">
+                            <input type="text" name="tags" required id="tokenfield" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -129,7 +129,8 @@
                 source: ['Website','Design','App','Web Developemnt','Mobile Aplication','Web Design','Web Service','Programming','Service'],
                 delay: 100
             },
-            showAutocompleteOnFocus: true
+            showAutocompleteOnFocus: true,
+            required:false
             })
      })
  </script>

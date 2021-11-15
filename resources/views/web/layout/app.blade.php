@@ -20,13 +20,22 @@ $locale = app()->getLocale();
     @include('web.inc.styles')
      <!-- App favicon -->
      <link rel="shortcut icon" href="{{asset('assets/admin')}}/images/favicon.ico">
+     <style>
+         @font-face {
+            font-family: 'MoLarabicRegular';
+            src: url("{{public_path('assets/web/fonts/MoLarabicRegular')}}") format('truetype');
+        }
+        body.ar{
+            font-family: 'MoLarabicRegular';
+        }
+     </style>
 
      <!-- App css -->
-
+     @stack('css')
 
 </head>
 
-<body>
+<body class="{!! app()->getLocale(); !!}">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @include('web.inc.header')
