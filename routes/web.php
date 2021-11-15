@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[HomeController::class,'index']);
+Route::get('/',[HomeController::class,'index'])->name('home');
 Route::post('/submit',[HomeController::class,'index']);
 Route::view('about', 'web.about')->name('about');
 Route::view('partners', 'web.partners')->name('pertners');

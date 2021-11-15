@@ -9,6 +9,7 @@
             <div class="col-12">
                 <div class="cart__breadcumb">
                     <p>Home > consulting services > Business Colsulting for growing</p>
+                    {{-- <p>Home > consulting services > Business Colsulting for growing</p> --}}
                 </div>
             </div>
         </div>
@@ -86,15 +87,26 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col-12 d-flex justify-content-end">
+            @php
+                $locale = app()->getLocale();
+            @endphp
+            <div class="col-12 d-flex {{$locale=='ar'?'justify-content-start':'justify-content-end'}}">
                 <div class="calucalte__total">
                     <p>Sub-Total  <span class="price1"> = ${{$total}}</span></p>
                     <p>VAT <span class="price2"> = $5</span></p>
                     <hr class="total__devider__line">
                     <p class="mb-5">Total <span class="price3"> =${{$total+5}}</span></p>
 
-                    <a href="#">Back to Home</a>
-                    <a href="{{route('shop.page')}}">Continue >></a>
+
+                    @if ($locale=='ar')
+                     <div class="d-flex">
+                         <a href="{{route('home')}}" style="">Back to Home</a>
+                        <a href="{{route('shop.page')}}" class="mr-3">  Continue >> </a>
+                     </div>
+                    @else
+                    <a href="{{route('home')}}" style="">Back to Home</a>
+                    <a href="{{route('shop.page')}}"> Continue >></a>
+                    @endif
                 </div>
             </div>
         </div>

@@ -20,15 +20,34 @@ $locale = app()->getLocale();
     @include('web.inc.styles')
      <!-- App favicon -->
      <link rel="shortcut icon" href="{{asset('assets/admin')}}/images/favicon.ico">
+     @if($locale == 'ar')
      <style>
          @font-face {
             font-family: 'MoLarabicRegular';
-            src: url("{{public_path('assets/web/fonts/MoLarabicRegular')}}") format('truetype');
+            src: url("{{public_path('assets/web/fonts/ar/MoLarabicRegular')}}") format('truetype');
         }
         body.ar{
-            font-family: 'MoLarabicRegular';
+            font-family: MoLarabicRegular;
         }
-     </style>
+        h1,h2,h3,h4,h5,h6,p,a,span,b,div,pre{
+            font-family: MoLarabicRegular,sans-serif !important;
+        }
+        </style>
+    @endif
+     @if($locale == 'en')
+     <style>
+         @font-face {
+            font-family: Cocogoose;
+            src: url("{{public_path('assets/web/fonts/eng/Cocogoose Pro Light-trial.ttf')}}") format('truetype');
+        }
+        body.ar{
+            font-family: Cocogoose;
+        }
+        h1,h2,h3,h4,h5,h6,p,a,span,b,div,pre{
+            font-family: Cocogoose,sans-serif !important;
+        }
+        </style>
+    @endif
 
      <!-- App css -->
      @stack('css')

@@ -1,24 +1,35 @@
 
 
 @extends('web.layout.app')
-
+@php
+    $locale = app()->getLocale();
+@endphp
+@push('css')
+<style>
+    [dir="rtl"] .slick-prev {
+    right: 102%;
+    left: auto;
+}
+</style>
+@endpush
 @section('main')
+
 <!-- details__redesign__hero -->
 <section class="details__redesign__hero">
     <div class="container">
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-6 order-2 order-sm-2 order-md-2 order-lg-1">
                 <div class="hero-text">
-                    <h3 class="">Here is the Right Place to
-                        Find Perfect Services</h3>
+                    <h3 style="{{$locale == 'ar'?'text-align: right':''}}">{{$locale == 'ar'?' هذا هو المكان المناسب للعثور ما تحتاج إليه من خدمات بمختلف المجالات والانشطة':'Here is the Right Place to
+                        Find Perfect Services'}}</h3>
                         <form action="{{url("servicepage")}}" method="post">
                             @csrf
-                            <div class="input-search">
-                                <input type="text" name="search" placeholder="Find Services">
-                                <button type="submit">Search</button>
-                            </div>
-                        </form>
-                    <p class="popular__tags">Popular search: App Development;  Website Development; Graphics Design; Icon</p>
+                        <div class="input-search">
+                           <input type="text" name="search" placeholder="{{$locale=='ar'?'البحث عن خدمات':'Find Services'}}">
+                           <button type="submit" style="{{$locale=='ar'?'margin-left: 10px;
+                           padding: 10px 41px;':''}}">{{$locale == 'ar'?'  بحث':'Search'}}</button>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-6 order-1 order-sm-1 order-md-1 order-lg-2">
@@ -44,8 +55,8 @@
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-7">
                   <div class="card__text p-4">
-                      <h4 class="card__text__title">{{$service->title}}</h4>
-                       <div class="card__review d-flex my-3">
+                      <h4 class="card__text__title " style="{{$locale == 'ar'?'text-align: right':''}}">{{$locale=='ar'? $service->title_ar: $service->title}}</h4>
+                       <div class="card__review d-flex my-3" style="{{$locale == 'ar'?'text-align: right':''}}">
                            <p class="mr-2">Customer Reviews: </p>
                            <div class="stars mr-2">
                             <i class="fas fa-star"></i>
@@ -124,14 +135,14 @@
 <!-- details__redesign__tabs./ -->
 
 <!-- details__redesign__slider -->
-<section class="details__redesign__slider">
+{{-- <section class="details__redesign__slider">
     <div class="container">
         <div class="row my-4">
             <div class="col-12">
                 <div class="popular__service">Populer Services</div>
             </div>
         </div>
-        <div class="row details__redesign__slider__container">
+        <div class="row slider__container">
             <div class="col-3">
                 <a href="#">
                     <img src="{{asset('/assets/web/img')}}/pexels-canva-studio-3194518.jpg" alt="img">
@@ -174,8 +185,94 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <!-- details__redesign__slider./ -->
+<!-- service__redesign__slider -->
+<section class="service__redesign__slider">
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-12">
+                <div class="popular__service" style="{{$locale=='ar'?'text-align: right':''}}">{{$locale=='ar'?'الخدمات المتاحة':'Available Services'}}</div>
+            </div>
+        </div>
+        <div class="row slider__container">
+            <div class="col-3">
+                <a href="#" class="image__holder">
+                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" class="w-100" alt="img">
+                    <div class="img__overlay">
+                        <h4>App Development</h4>
+                        <h6>Make your own app</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="#" class="image__holder">
+                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" class="w-100" alt="img">
+                    <div class="img__overlay">
+                        <h4>App Development</h4>
+                        <h6>Make your own app</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="#" class="image__holder">
+                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" class="w-100" alt="img">
+                    <div class="img__overlay">
+                        <h4>App Development</h4>
+                        <h6>Make your own app</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="#" class="image__holder">
+                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" class="w-100" alt="img">
+                    <div class="img__overlay">
+                        <h4>App Development</h4>
+                        <h6>Make your own app</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="#" class="image__holder">
+                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" class="w-100" alt="img">
+                    <div class="img__overlay">
+                        <h4>App Development</h4>
+                        <h6>Make your own app</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="#" class="image__holder">
+                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" class="w-100" alt="img">
+                    <div class="img__overlay">
+                        <h4>App Development</h4>
+                        <h6>Make your own app</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="#" class="image__holder">
+                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" class="w-100" alt="img">
+                    <div class="img__overlay">
+                        <h4>App Development</h4>
+                        <h6>Make your own app</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="#" class="image__holder">
+                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" class="w-100" alt="img">
+                    <div class="img__overlay">
+                        <h4>App Development</h4>
+                        <h6>Make your own app</h6>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- slider./ -->
 @endsection
 
 @push('js')

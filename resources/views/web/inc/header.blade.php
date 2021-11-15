@@ -15,7 +15,7 @@
                     <div class="links">
                         <div class="item item-1 position-relative lang-item">
                             <a href="#">
-                                <span><?php echo $locale=='ar'?  'العربية': 'English';?></span>
+                                <span style="{{$locale=='ar'?'margin-left:5px;':''}}"><?php echo $locale=='ar'?  'العربية': 'English';?></span>
                                  <i class="fas fa-chevron-down"></i>
                             </a>
                             @php
@@ -42,18 +42,19 @@
                         <div class="item item-2" id="click">
 
                            <a href="{{url('cart')}}">
-                            <p style="position: relative">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span style="position: absolute;
-                                top: -12px;
-                                left: 21px;
-                                color: #fafafa;">{{session('cart') ? count(session('cart')):' '}}</span></p>
+                            <p style="position: relative;{{$locale=='ar'?'margin-left:5px;':''}}">
+                                <i class="fas fa-shopping-cart" ></i>
+                                <span style="position: absolute;
+                                    top: -12px;
+                                    left: 21px;
+                                    color: #fafafa;">{{session('cart') ? count(session('cart')):' '}}</span>
+                            </p>
                             <span>@lang('homepage.header-top-cart') </span>
                            </a>
                         </div>
                         <div class="item item-3">
                             <a href="{{route('admin')}}">
-                                <p>
+                                <p style="{{$locale=='ar'?'margin-left:5px;':''}}">
                                     <i class="fas fa-user"></i>
                                 </p>
                                 <span style="color: #ffffff">@lang('homepage.header-top-account')</span>
