@@ -57,7 +57,7 @@
                   <div class="card__text p-4">
                       <h4 class="card__text__title " style="{{$locale == 'ar'?'text-align: right':''}}">{{$locale=='ar'? $service->title_ar: $service->title}}</h4>
                        <div class="card__review d-flex my-3" style="{{$locale == 'ar'?'text-align: right':''}}">
-                           <p class="mr-2">Customer Reviews: </p>
+                           <p class="mr-2">@lang('details.Contact Us') </p>
                            <div class="stars mr-2">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -87,10 +87,10 @@
 
                       </div>
                       <div class="buttons">
-                          <a href="{{url("place-order/".$service->id)}}">Place Order</a>
-                          <a href="{{route("contact")}}" class="ml-4">Contact us</a>
+                          <a href="{{url("place-order/".$service->id)}}">@lang('details.Place Order')</a>
+                          <a href="{{route("contact")}}" class="ml-4 {{$locale=='ar'?'mr-3':''}}">Contact us</a>
                       </div>
-                      <div class="share">
+                      <div class="share {{$locale=='ar'?'text-right':' '}}" >
                           <span>Share:</span>
                           <span class="share__icons">
                               <a href=""><i class="fab fa-facebook-f"></i></a>
@@ -114,13 +114,18 @@
         <div class="row">
             <div class="col-12">
                 <div class="tabs">
-                    @forelse (['Description','Information','Vendor','Reviews'] as $item)
-                        <a style=" cursor :pointer;" class="active_tab">
-                            <span id="tab" data-id="{{$service->id}}">{{$item}}</span>
+                        <a style=" cursor :pointer;" class="active_tab tabs">
+                            <span id="tab" data-id="{{$service->id}}" data-text="Description">@lang('details.Description')</span>
                         </a>
-                    @empty
-
-                    @endforelse
+                        <a style=" cursor :pointer;" class=" tabs">
+                            <span id="tab" data-id="{{$service->id}}" data-text="Information">@lang('details.Information')</span>
+                        </a>
+                        <a style=" cursor :pointer;" class=" tabs">
+                            <span id="tab" data-id="{{$service->id}}" data-text="Vendor">@lang('details.Vendor')</span>
+                        </a>
+                        <a style=" cursor :pointer;" class=" tabs">
+                            <span id="tab" data-id="{{$service->id}}" data-text="Reviews">@lang('details.Reviews')</span>
+                        </a>
 
                 </div>
                 <div class="tabs__details shadow">
@@ -283,12 +288,12 @@
          $(document).on('click','#tab',function(){
 
 
-             let tab = $(this).text().toLowerCase();
+             let tab = $(this).data('text').toLowerCase();
              let service_id = $(this).data('id');
 
 
             //making active tab
-             let tabs = document.getElementsByClassName('active_tab');
+             let tabs = document.getElementsByClassName('tabs');
              console.log( tabs[0]);
              for(let i=0;i<tabs.length;i++){
                 tabs[i].innerText.toLowerCase() == tab ? tabs[i].classList.add('active') : tabs[i].classList.remove('active');
@@ -300,7 +305,7 @@
                  method:'get',
                  success:function(res){
                      console.log(res);
-                     if(typeof res.tab == 'object'){
+                     if(typeof res.tab == 'object'  && res.tab !== null){
                          let {name,email,company_name,phone} = res.tab
                          $('#tab_data').html(`
 
@@ -311,7 +316,10 @@
                          <p>company name: ${company_name}</p> <br>
 
                          `)
-                     } else{
+                     } else if(res.tab==null){
+                       $('#tab_data').text("no data")
+                     }
+                      else{
 
                        $('#tab_data').text(res.tab)
                      }

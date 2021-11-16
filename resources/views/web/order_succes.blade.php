@@ -7,9 +7,9 @@
             <div class="col-6 mx-auto">
                 <div class="contact__form shadow" style="padding: 100px 20px; text-align:center;">
 
-                    <h4 class="mb-2">Congratulations !!</h4>
-                    <p>Order placed successfully</p>
-                    <a href="{{url('servicepage')}}" class="btn btn-large btn-info">Back to Buy Service</a>
+                    <h4 class="mb-2">@lang('success_page.Congratulations') !!</h4>
+                    <p class="text-center">@lang('success_page.Order placed successfully')</p>
+                    <a href="{{url('servicepage')}}" class="btn btn-large btn-info">@lang('success_page.Back to buy service')</a>
                 </div>
             </div>
         </div>
