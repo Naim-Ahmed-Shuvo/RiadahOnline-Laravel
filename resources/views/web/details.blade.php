@@ -237,24 +237,24 @@
 
 
              let tab = $(this).data('text').toLowerCase();
-             console.log(tab);
+            //  console.log(tab);
              let service_id = $(this).data('id');
 
 
             //making active tab
              let tabs = document.getElementsByClassName('tabs');
-             console.log( tabs[0]);
+            //  console.log( tabs[0]);
              for(let i=0;i<tabs.length;i++){
                 tabs[i].innerText.toLowerCase() == tab ? tabs[i].classList.add('active') : tabs[i].classList.remove('active');
              }
 
              let local = "<?php echo app()->getLocale();?>";
-             console.log("local: ",local);
+            //  console.log("local: ",local);
              $.ajax({
                  url: `{{url('get_tabdata/${tab}/${service_id}')}}`,
                  method:'get',
                  success:function(res){
-                     console.log(res.tab);
+                    //  console.log(res.tab);
                      console.log(tab)
                      if(typeof res.tab == 'object'  && res.tab != null){
                          let {description,description_ar,information,information_ar,name,email,phone} = res.tab;
@@ -263,14 +263,14 @@
                              case 'description':
                                     $('#tab_data').html(`
 
-                                        <p>Description: ${local=='ar'?description_ar:description}</p> <br>
+                                        <p> ${local=='ar'?description_ar:description}</p> <br>
 
                                     `)
                                  return;
                              case 'information':
                                     $('#tab_data').html(`
 
-                                        <p>Information: ${local=='ar'?information_ar:information}</p> <br>
+                                        <p> ${local=='ar'?information_ar:information}</p> <br>
 
                                     `)
                                  return;
