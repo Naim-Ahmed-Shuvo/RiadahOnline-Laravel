@@ -251,7 +251,7 @@
                                 <img src="{{url($item->image)}}" class="w-100" height="212" alt="img">
                                 <h4 style="{{$locale=='ar'? 'text-align:right;':''}}">{{$locale=='ar'?$item->title_ar??'':$item->title}}</h4>
                                 <p style="{{$locale=='ar'? 'text-align:right;':''}}">{{getDotStr($locale=='ar'?$item->description_ar??'':$item->description)}}</p>
-                                <a href="{{url('place-order/'.$item->id)}}" class="place__order__btn">Place Order</a>
+                                <a href="{{route('service.details',['id'=>$item->id])}}" class="place__order__btn">{{$locale=='ar'?'عرض التفاصيل':'View Details'}}</a>
                             </a>
                         </div>
                     @empty
@@ -265,5 +265,9 @@
 </section>
 <!-- service__redesign__main./ -->
 @endsection
+
+@push('js')
+
+@endpush
 
 

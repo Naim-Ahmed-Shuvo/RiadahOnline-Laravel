@@ -69,7 +69,7 @@
                                (120/5)
                            </div>
                        </div>
-                       <p class="card__text__details__text">{{$service->description}}</p>
+                       <p class="card__text__details__text">{{$locale=='ar'? $service->description_ar: $service->description}}</p>
                        @php
                            function getTagsArr($tags){
                                $tags_arr = explode(',',$tags);
@@ -77,7 +77,7 @@
                            }
                        @endphp
                        <div class="reated__tags">
-                           <p>Related Tags:</p>
+                           <p>@lang('details.Related Tags')</p>
                            @forelse (getTagsArr($service->tags) as $item)
 
                            <span>{{$item}}</span>
@@ -88,7 +88,7 @@
                       </div>
                       <div class="buttons">
                           <a href="{{url("place-order/".$service->id)}}">@lang('details.Place Order')</a>
-                          <a href="{{route("contact")}}" class="ml-4 {{$locale=='ar'?'mr-3':''}}">Contact us</a>
+                          <a href="{{route("contact")}}" class="ml-4 {{$locale=='ar'?'mr-3':''}}">@lang('details.Contact Us')</a>
                       </div>
                       <div class="share {{$locale=='ar'?'text-right':' '}}" >
                           <span>Share:</span>
@@ -139,59 +139,7 @@
 </section>
 <!-- details__redesign__tabs./ -->
 
-<!-- details__redesign__slider -->
-{{-- <section class="details__redesign__slider">
-    <div class="container">
-        <div class="row my-4">
-            <div class="col-12">
-                <div class="popular__service">Populer Services</div>
-            </div>
-        </div>
-        <div class="row slider__container">
-            <div class="col-3">
-                <a href="#">
-                    <img src="{{asset('/assets/web/img')}}/pexels-canva-studio-3194518.jpg" alt="img">
-                </a>
-            </div>
-            <div class="col-3">
-                <a href="#">
-                    <img src="{{asset('/assets/web/img')}}/pexels-designecologist-1779487.jpg" alt="img">
-                </a>
-            </div>
-            <div class="col-3">
-                <a href="#">
-                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-39284.jpg" alt="img">
-                </a>
-            </div>
-            <div class="col-3">
-                <a href="#">
-                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" alt="img">
-                </a>
-            </div>
-            <div class="col-3">
-                <a href="#">
-                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" alt="img">
-                </a>
-            </div>
-            <div class="col-3">
-                <a href="#">
-                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" alt="img">
-                </a>
-            </div>
-            <div class="col-3">
-                <a href="#">
-                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" alt="img">
-                </a>
-            </div>
-            <div class="col-3">
-                <a href="#">
-                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" alt="img">
-                </a>
-            </div>
-        </div>
-    </div>
-</section> --}}
-<!-- details__redesign__slider./ -->
+
 <!-- service__redesign__slider -->
 <section class="service__redesign__slider">
     <div class="container">
@@ -289,6 +237,7 @@
 
 
              let tab = $(this).data('text').toLowerCase();
+             console.log(tab);
              let service_id = $(this).data('id');
 
 
@@ -299,23 +248,45 @@
                 tabs[i].innerText.toLowerCase() == tab ? tabs[i].classList.add('active') : tabs[i].classList.remove('active');
              }
 
-
+             let local = "<?php echo app()->getLocale();?>";
+             console.log("local: ",local);
              $.ajax({
                  url: `{{url('get_tabdata/${tab}/${service_id}')}}`,
                  method:'get',
                  success:function(res){
-                     console.log(res);
-                     if(typeof res.tab == 'object'  && res.tab !== null){
-                         let {name,email,company_name,phone} = res.tab
-                         $('#tab_data').html(`
+                     console.log(res.tab);
+                     console.log(tab)
+                     if(typeof res.tab == 'object'  && res.tab != null){
+                         let {description,description_ar,information,information_ar,name,email,phone} = res.tab;
 
-                         <p>verndor name: ${name}</p> <br>
-                         <p>verndor email: ${email}</p> <br>
-                         <p>verndor email: ${email}</p> <br>
-                         <p>verndor phone: ${phone}</p> <br>
-                         <p>company name: ${company_name}</p> <br>
+                         switch (tab) {
+                             case 'description':
+                                    $('#tab_data').html(`
 
-                         `)
+                                        <p>Description: ${local=='ar'?description_ar:description}</p> <br>
+
+                                    `)
+                                 return;
+                             case 'information':
+                                    $('#tab_data').html(`
+
+                                        <p>Information: ${local=='ar'?information_ar:information}</p> <br>
+
+                                    `)
+                                 return;
+                             case 'vendor':
+                                    $('#tab_data').html(`
+                                        <p>verndor name: ${local=='ar'?name:name}</p> <br>
+                                        <p>verndor email: ${local=='ar'?email:email}</p> <br>
+                                        <p>verndor phone: ${local=='ar'?phone:phone}</p> <br>
+
+                                    `)
+                                 return;
+
+
+                             default:
+                                 return;
+                         }
                      } else if(res.tab==null){
                        $('#tab_data').text("no data")
                      }

@@ -69,16 +69,17 @@ class ServiceController extends Controller
             switch ($tab) {
 
                 case 'description':
-                     $description = Service::where("id",$service_id)->pluck('description');
+                     $description = Service::where("id",$service_id)->get();
                      return $description[0];
                     break;
                 case 'information':
-                    $information =   Service::where("id",$service_id)->pluck('information');
+                    $information =   Service::where("id",$service_id)->get();
                     return $information[0];
                     break;
                 case 'vendor':
                     $service = Service::where("id",$service_id)->first();
-                    return  Vendor::find($service->vendor);
+                    $vendor = Vendor::find($service->vendor);
+                    return $vendor;
                     break;
                 case 'reviews':
                     $reviews =   Service::where("id",$service_id)->pluck('reviews');

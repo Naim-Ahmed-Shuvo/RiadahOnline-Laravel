@@ -9,4 +9,5 @@ return [
     'Information'=>'معلومات',
     'Vendor'=>'البائع',
     'Reviews'=>'الآراء',
+    'Related Tags'=>'العلامات ذات الصلة'
 ];

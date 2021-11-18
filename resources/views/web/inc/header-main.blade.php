@@ -12,8 +12,8 @@
                 <div class="header-links">
                     <span><a href="{{url('/')}}">@lang('homepage.header-link-home')</a></span>
                     <span><a href="{{route('about')}}">@lang('homepage.header-link-about') </a></span>
-                    <span><a href="{{route('pertners')}}">@lang('homepage.header-link-partners')</a></span>
                     <span><a href="{{url('servicepage')}}">@lang('homepage.header-link-services')</a></span>
+                    <span><a href="{{route('pertners')}}">@lang('homepage.header-link-partners')</a></span>
                     <span><a href="{{route('contact')}}">@lang('homepage.header-link-contact')</a></span>
                 </div>
                 <div class="mobile-menu-bar">
