@@ -140,9 +140,36 @@
             </div>
             <div class="col-3">
                 <a href="#" class="image__holder">
-                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" class="w-100" alt="img">
+                    <img src="{{asset('/assets/web/img')}}/pexels-canva-studio-3194518.jpg" class="w-100" alt="img">
                     <div class="img__overlay">
-                        <h4>App Development</h4>
+                        <h4>Web Design</h4>
+                        <h6>Make your own app</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="#" class="image__holder">
+                    <img src="{{asset('/assets/web/img')}}/pexels-designecologist-1779487.jpg" class="w-100" alt="img">
+                    <div class="img__overlay">
+                        <h4>Online Marketing</h4>
+                        <h6>Make your own app</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="#" class="image__holder">
+                    <img src="{{asset('/assets/web/img')}}/pexels-negative-space-34600.jpg" class="w-100" alt="img">
+                    <div class="img__overlay">
+                        <h4>Business Consulting</h4>
+                        <h6>Make your own app</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="#" class="image__holder">
+                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-39284.jpg" class="w-100" alt="img">
+                    <div class="img__overlay">
+                        <h4>Business Consulting</h4>
                         <h6>Make your own app</h6>
                     </div>
                 </a>
@@ -158,7 +185,7 @@
             </div>
             <div class="col-3">
                 <a href="#" class="image__holder">
-                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" class="w-100" alt="img">
+                    <img src="{{asset('/assets/web/img')}}/pexels-tranmautritam-326501.jpg" class="w-100" alt="img">
                     <div class="img__overlay">
                         <h4>App Development</h4>
                         <h6>Make your own app</h6>
@@ -167,34 +194,7 @@
             </div>
             <div class="col-3">
                 <a href="#" class="image__holder">
-                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" class="w-100" alt="img">
-                    <div class="img__overlay">
-                        <h4>App Development</h4>
-                        <h6>Make your own app</h6>
-                    </div>
-                </a>
-            </div>
-            <div class="col-3">
-                <a href="#" class="image__holder">
-                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" class="w-100" alt="img">
-                    <div class="img__overlay">
-                        <h4>App Development</h4>
-                        <h6>Make your own app</h6>
-                    </div>
-                </a>
-            </div>
-            <div class="col-3">
-                <a href="#" class="image__holder">
-                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" class="w-100" alt="img">
-                    <div class="img__overlay">
-                        <h4>App Development</h4>
-                        <h6>Make your own app</h6>
-                    </div>
-                </a>
-            </div>
-            <div class="col-3">
-                <a href="#" class="image__holder">
-                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" class="w-100" alt="img">
+                    <img src="{{asset('/assets/web/img')}}/pexels-tranmautritam-326503.jpg" class="w-100" alt="img">
                     <div class="img__overlay">
                         <h4>App Development</h4>
                         <h6>Make your own app</h6>
@@ -206,11 +206,7 @@
     </div>
 </section>
 <!-- slider./ -->
-@php
-    function getDotStr($str){
-        return strlen($str)<100? $str: substr($str,0,100).'...';
-    }
-@endphp
+
 <!-- service__redesign__main -->
 <section class="service__redesign__main">
     <div class="container">
@@ -246,11 +242,11 @@
 
                     @forelse ($services as $item)
 
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 cards">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 cards my-4">
                             <a href="{{route('service.details',['id'=>$item->id])}}">
-                                <img src="{{url($item->image)}}" class="w-100" height="212" alt="img">
+                                <img src="{{url($item->image)}}" class="w-100"  alt="img">
                                 <h4 style="{{$locale=='ar'? 'text-align:right;':''}}">{{$locale=='ar'?$item->title_ar??'':$item->title}}</h4>
-                                <p style="{{$locale=='ar'? 'text-align:right;':''}}">{{getDotStr($locale=='ar'?$item->description_ar??'':$item->description)}}</p>
+                                <p style="{{$locale=='ar'? 'text-align:right;':''}}">{{getDotStr($locale=='ar'?$item->description_ar:$item->description)}}</p>
                                 <a href="{{route('service.details',['id'=>$item->id])}}" class="place__order__btn">{{$locale=='ar'?'عرض التفاصيل':'View Details'}}</a>
                             </a>
                         </div>

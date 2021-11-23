@@ -91,7 +91,7 @@
                           <a href="{{route("contact")}}" class="ml-4 {{$locale=='ar'?'mr-3':''}}">@lang('details.Contact Us')</a>
                       </div>
                       <div class="share {{$locale=='ar'?'text-right':' '}}" >
-                          <span>Share:</span>
+                          <span>{{$locale=="ar"?"يشارك":"Share"}} :</span>
                           <span class="share__icons">
                               <a href=""><i class="fab fa-facebook-f"></i></a>
                               <a href=""><i class="fab fa-twitter"></i></a>
@@ -129,8 +129,8 @@
 
                 </div>
                 <div class="tabs__details shadow">
-                    <p id="tab_data">
-                        {{$service->description}}
+                    <p id="tab_data {{$locale=="ar"?'text-right':''}}">
+                        {{$locale=="ar"?$service->description_ar:$service->description}}
                     </p>
                 </div>
             </div>
@@ -160,9 +160,36 @@
             </div>
             <div class="col-3">
                 <a href="#" class="image__holder">
-                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" class="w-100" alt="img">
+                    <img src="{{asset('/assets/web/img')}}/pexels-canva-studio-3194518.jpg" class="w-100" alt="img">
                     <div class="img__overlay">
-                        <h4>App Development</h4>
+                        <h4>Web Design</h4>
+                        <h6>Make your own app</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="#" class="image__holder">
+                    <img src="{{asset('/assets/web/img')}}/pexels-designecologist-1779487.jpg" class="w-100" alt="img">
+                    <div class="img__overlay">
+                        <h4>Online Marketing</h4>
+                        <h6>Make your own app</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="#" class="image__holder">
+                    <img src="{{asset('/assets/web/img')}}/pexels-negative-space-34600.jpg" class="w-100" alt="img">
+                    <div class="img__overlay">
+                        <h4>Business Consulting</h4>
+                        <h6>Make your own app</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="#" class="image__holder">
+                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-39284.jpg" class="w-100" alt="img">
+                    <div class="img__overlay">
+                        <h4>Business Consulting</h4>
                         <h6>Make your own app</h6>
                     </div>
                 </a>
@@ -178,7 +205,7 @@
             </div>
             <div class="col-3">
                 <a href="#" class="image__holder">
-                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" class="w-100" alt="img">
+                    <img src="{{asset('/assets/web/img')}}/pexels-tranmautritam-326501.jpg" class="w-100" alt="img">
                     <div class="img__overlay">
                         <h4>App Development</h4>
                         <h6>Make your own app</h6>
@@ -187,34 +214,7 @@
             </div>
             <div class="col-3">
                 <a href="#" class="image__holder">
-                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" class="w-100" alt="img">
-                    <div class="img__overlay">
-                        <h4>App Development</h4>
-                        <h6>Make your own app</h6>
-                    </div>
-                </a>
-            </div>
-            <div class="col-3">
-                <a href="#" class="image__holder">
-                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" class="w-100" alt="img">
-                    <div class="img__overlay">
-                        <h4>App Development</h4>
-                        <h6>Make your own app</h6>
-                    </div>
-                </a>
-            </div>
-            <div class="col-3">
-                <a href="#" class="image__holder">
-                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" class="w-100" alt="img">
-                    <div class="img__overlay">
-                        <h4>App Development</h4>
-                        <h6>Make your own app</h6>
-                    </div>
-                </a>
-            </div>
-            <div class="col-3">
-                <a href="#" class="image__holder">
-                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" class="w-100" alt="img">
+                    <img src="{{asset('/assets/web/img')}}/pexels-tranmautritam-326503.jpg" class="w-100" alt="img">
                     <div class="img__overlay">
                         <h4>App Development</h4>
                         <h6>Make your own app</h6>
@@ -256,44 +256,7 @@
                  success:function(res){
                     //  console.log(res.tab);
                      console.log(tab)
-                     if(typeof res.tab == 'object'  && res.tab != null){
-                         let {description,description_ar,information,information_ar,name,email,phone} = res.tab;
-
-                         switch (tab) {
-                             case 'description':
-                                    $('#tab_data').html(`
-
-                                        <p> ${local=='ar'?description_ar:description}</p> <br>
-
-                                    `)
-                                 return;
-                             case 'information':
-                                    $('#tab_data').html(`
-
-                                        <p> ${local=='ar'?information_ar:information}</p> <br>
-
-                                    `)
-                                 return;
-                             case 'vendor':
-                                    $('#tab_data').html(`
-                                        <p>verndor name: ${local=='ar'?name:name}</p> <br>
-                                        <p>verndor email: ${local=='ar'?email:email}</p> <br>
-                                        <p>verndor phone: ${local=='ar'?phone:phone}</p> <br>
-
-                                    `)
-                                 return;
-
-
-                             default:
-                                 return;
-                         }
-                     } else if(res.tab==null){
-                       $('#tab_data').text("no data")
-                     }
-                      else{
-
-                       $('#tab_data').text(res.tab)
-                     }
+                    $('#tab_data').text(res.tab);
                  }
              })
          })
