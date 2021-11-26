@@ -1,12 +1,10 @@
 <?php
 
+
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\ServiceController;
-use App\Models\Address;
-use App\Models\User;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,13 +47,6 @@ Route::get('order-success', [OrdersController::class,'orderSuccess'])->name('ord
 Route::post('submit-form', [HomeController::class,'submit'])->name('submit.form');
 
 
-// test
-// Route::get('create-user',function(){
-
-//     $addresses = Address::all();
-//     $users = User::all();
-//     return view('test',['addresses'=>$addresses]);
-// });
 
 
 require __DIR__.'/auth.php';

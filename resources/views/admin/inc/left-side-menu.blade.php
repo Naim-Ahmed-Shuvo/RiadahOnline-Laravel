@@ -53,6 +53,7 @@
                         <span> Users </span>
                     </a>
                 </li>
+
                 <li>
                     <a href="#settings" data-bs-toggle="collapse">
                         <i class="fas fa-cog"></i>
@@ -63,6 +64,9 @@
                         <ul class="nav-second-level">
                             <li >
                                 <a href="{{url('slider')}}">Slider</a>
+                            </li>
+                            <li >
+                                <a href="{{route('service_slider')}}">Service Sliders</a>
                             </li>
 
                         </ul>

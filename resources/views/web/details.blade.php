@@ -117,19 +117,19 @@
                         <a style=" cursor :pointer;" class="active_tab tabs">
                             <span id="tab" data-id="{{$service->id}}" data-text="Description">@lang('details.Description')</span>
                         </a>
-                        <a style=" cursor :pointer;" class=" tabs">
+                        <a style=" cursor :pointer;" class="tabs">
                             <span id="tab" data-id="{{$service->id}}" data-text="Information">@lang('details.Information')</span>
                         </a>
-                        <a style=" cursor :pointer;" class=" tabs">
+                        <a style=" cursor :pointer;" class="tabs">
                             <span id="tab" data-id="{{$service->id}}" data-text="Vendor">@lang('details.Vendor')</span>
                         </a>
-                        <a style=" cursor :pointer;" class=" tabs">
+                        <a style=" cursor :pointer;" class="tabs">
                             <span id="tab" data-id="{{$service->id}}" data-text="Reviews">@lang('details.Reviews')</span>
                         </a>
 
                 </div>
                 <div class="tabs__details shadow">
-                    <p id="tab_data {{$locale=="ar"?'text-right':''}}">
+                    <p class="tab_data {{$locale=="ar"?'text-right':''}}">
                         {{$locale=="ar"?$service->description_ar:$service->description}}
                     </p>
                 </div>
@@ -249,14 +249,27 @@
              }
 
              let local = "<?php echo app()->getLocale();?>";
-            //  console.log("local: ",local);
+             console.log("local: ",local);
              $.ajax({
                  url: `{{url('get_tabdata/${tab}/${service_id}')}}`,
                  method:'get',
                  success:function(res){
                     //  console.log(res.tab);
-                     console.log(tab)
-                    $('#tab_data').text(res.tab);
+                    //  console.log(tab)
+                     if(tab=='description') {
+                       $('.tab_data').text(local=="ar"?res.tab.description_ar??"":res.tab.description);
+                     } else if(tab=='information'){
+                        $('.tab_data').text(local=="ar"?res.tab.information_ar??"":res.tab.information);
+                     } else if(tab=='vendor'){
+                        $('.tab_data').html(`
+                            <p > <b>${local=="ar"?'اسم البائع: ':'vendor name: '} </b>${res.tab.name}</p>
+                            <p> <b>${local=="ar"?'البريد الإلكتروني: ':'email: '} </b>${res.tab.email}</p>
+                            <p> <b>${local=="ar"?' هاتف: ':'phone: '} </b>${res.tab.phone}</p>
+                            <p> <b>${local=="ar"?'اسم الشركة: ':'company name: '} </b>${res.tab.company_name}</p>
+                        `);
+                     } else{
+                        $('.tab_data').text(res.tab);
+                     }
                  }
              })
          })
