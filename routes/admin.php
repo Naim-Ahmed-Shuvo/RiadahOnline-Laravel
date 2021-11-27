@@ -51,7 +51,7 @@ Route::group(['middleware'=>'auth'],function () {
     Route::get("service_slider",[ServiceSliderController::class,'index'])->name("service_slider");
     Route::get("service_slider/create",[ServiceSliderController::class,'create'])->name("service_slider.create");
     Route::post("service_slider/store",[ServiceSliderController::class,'store'])->name("service_slider.store");
-    Route::post("service_slider/edit/{id?}",[ServiceSliderController::class,'edit'])->name("service_slider.edit");
+    Route::get("service_slider/edit/{id?}",[ServiceSliderController::class,'edit'])->name("service_slider.edit");
     Route::post("service_slider/update/{id?}",[ServiceSliderController::class,'update'])->name("service_slider.update");
-    Route::post("service_slider/delete/{id?}",[ServiceSliderController::class,'delete'])->name("service_slider.delete");
+    Route::get("service_slider/delete/{id?}",[ServiceSliderController::class,'delete'])->name("service_slider.delete");
 });
