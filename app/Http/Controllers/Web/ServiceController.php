@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Service;
+use App\Models\ServiceSlider;
 use App\Models\Vendor;
 use Illuminate\Http\Request;
 
@@ -15,22 +16,27 @@ class ServiceController extends Controller
     {
 
         $categories = Category::latest()->get();
+        $service_sliders = ServiceSlider::latest()->get();
 
+        //
         if(isset($request->search)){
             $services =  Service::where('title','LIKE','%'.$request->search.'%')->get();
             $categories = Category::latest()->get();
-            return view('web.service',compact('services','categories','cat_id'));
+            return view('web.service',compact('services','categories','cat_id','service_sliders'));
         }
+
+        //
         if(isset($request->cat_search)){
             $categories = Category::where('name','LIKE','%'.$request->cat_search.'%')->get();
             // return $categories;
         }
-        # code...
+
+        //
         $services = $cat_id? Service::where('cat_id',$cat_id)->get() : Service::latest()->get();
 
 
         // return $services;
-        return view('web.service',compact('services','categories','cat_id'));
+        return view('web.service',compact('services','categories','cat_id','service_sliders'));
     }
 
     public function getServiceByCategory($id)

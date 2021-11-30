@@ -60,16 +60,21 @@
             </div>
         </div>
         <div class="row slider__container">
+            @forelse ($service_sliders as $item)
+
             <div class="col-3">
                 <a href="#" class="image__holder">
-                    <img src="{{asset('/assets/web/img')}}/pexels-pixabay-461064.jpg" class="w-100" alt="img">
+                    <img src="{{url($item->image)}}" class="w-100" alt="img">
                     <div class="img__overlay">
-                        <h4>App Development</h4>
-                        <h6>Make your own app</h6>
+                        <h4>{{$locale == "ar"?$item->title_ar:$item->title}}</h4>
+                        <h6>{{$locale == "ar"?$item->sub_title_ar:$item->sub_title}}</h6>
                     </div>
                 </a>
             </div>
-            <div class="col-3">
+            @empty
+                {{ "no data" }}
+            @endforelse
+            {{-- <div class="col-3">
                 <a href="#" class="image__holder">
                     <img src="{{asset('/assets/web/img')}}/pexels-canva-studio-3194518.jpg" class="w-100" alt="img">
                     <div class="img__overlay">
@@ -77,8 +82,8 @@
                         <h6>Make your own app</h6>
                     </div>
                 </a>
-            </div>
-            <div class="col-3">
+            </div> --}}
+            {{-- <div class="col-3">
                 <a href="#" class="image__holder">
                     <img src="{{asset('/assets/web/img')}}/pexels-designecologist-1779487.jpg" class="w-100" alt="img">
                     <div class="img__overlay">
@@ -132,7 +137,7 @@
                     </div>
                 </a>
 
-            </div>
+            </div> --}}
         </div>
     </div>
 </section>
